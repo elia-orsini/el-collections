@@ -7,6 +7,9 @@ const IndexPage = ({ items }) => {
   return (
     <div>
         <h1 className="font-bold text-xl text-center uppercase">el&apos;s films</h1>
+        <h3 className="font-bold text-xs text-center lowercase">
+          a list of films i want to watch
+        </h3>
         <div className="mx-auto my-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2">
           {items.map((obj)=> {
             return (
