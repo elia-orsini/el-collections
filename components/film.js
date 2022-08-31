@@ -1,5 +1,4 @@
 
-
 export default function Film(props) {
     return (
       <div className="mt-10 mx-auto">
