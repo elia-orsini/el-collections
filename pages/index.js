@@ -17,8 +17,15 @@ const IndexPage = ({ items }) => {
           <img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" />
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
           <h3 className="text-xs text-center uppercase font-light tracking-tighter">
-            a list of films i want to watch
+            my collection of indie films
           </h3>
+          <h3 className="absolute w-full pr-6 -mt-10 text-2xs text-right uppercase font-light tracking-tighter hidden sm:block">
+            <span className="font-bold">{items.length}</span> films total &nbsp;&nbsp;|&nbsp;&nbsp;  <span className="font-bold">{items.filter(checkWatched).length}</span> watched
+          </h3>
+          <h3 className="text-2xs text-center uppercase font-light tracking-tighter sm:hidden">
+            <span className="font-bold">{items.length}</span> films total &nbsp;&nbsp;|&nbsp;&nbsp;  <span className="font-bold">{items.filter(checkWatched).length}</span> watched
+          </h3>
+
 
           <div className="w-full">
             <button
@@ -27,6 +34,7 @@ const IndexPage = ({ items }) => {
               {switchEvents ? 'show all' : 'show only watched'}
             </button>
           </div>
+
 
           <div className="mx-auto my-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-20">
             {filteredItems.map((obj)=> {
@@ -42,6 +50,7 @@ const IndexPage = ({ items }) => {
               )  
             })}
           </div>
+          
           
         <p className="text-center text-xs mb-10">
           made by el © 2022<br />
