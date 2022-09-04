@@ -9,8 +9,9 @@ function MyApp({ Component, pageProps }) {
         <title>el&apos;s films</title>
         <meta
           name="Description"
-          content="A Next.js starter styled using Tailwind CSS."
+          content="sup i am el"
         />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       <Component {...pageProps} />

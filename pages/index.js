@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Client } from "@notionhq/client";
 import Film from '../components/film'
 
+function checkWatched(item) {
+  const itemStatus = item.properties.STATUS.select
+  return itemStatus && itemStatus.name === 'WATCHED';
+}
+
 const IndexPage = ({ items }) => {
-  console.log(items)
+  const [switchEvents, setSwitch] = useState(false)
+
+  let filteredItems = switchEvents ? items.filter(checkWatched) : items;
 
   return (
         <div>
-          <img className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" />
+          <img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" />
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
           <h3 className="text-xs text-center uppercase font-light tracking-tighter">
             a list of films i want to watch
           </h3>
+
+          <div className="w-full">
+            <button
+            className={`mt-8 block text-xs py-1 mx-auto px-3 ${!switchEvents ? 'bg-black text-white' : 'text-black border border-black'}`}
+            onClick={() => setSwitch(!switchEvents)}>
+              {switchEvents ? 'show all' : 'show only watched'}
+            </button>
+          </div>
+
           <div className="mx-auto my-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-20">
-            {items.map((obj)=> {
+            {filteredItems.map((obj)=> {
               return (
                 <Film 
                   key={obj.id}
@@ -25,8 +41,13 @@ const IndexPage = ({ items }) => {
                 />
               )  
             })}
-        </div>
-        <p className="text-center text-xs mb-10"> made by el © 2022</p>
+          </div>
+          
+        <p className="text-center text-xs mb-10">
+          made by el © 2022<br />
+          <span className="text-2xs">contact me if u want a site like this for yourself</span><br />
+          <a href="https://elia-orsini.com" rel="noreferrer" target="_blank" className="text-2xs text-blue-600 underline">my real website</a>
+        </p>
     </div>
   );
 };
