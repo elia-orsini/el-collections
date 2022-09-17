@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Client } from "@notionhq/client";
+import Link from "next/link";
 
 const IndexPage = () => {
 
@@ -17,22 +18,22 @@ const IndexPage = () => {
 
           <ul className="mx-auto text-center my-auto mt-40">
             <li>
-              <a href="/films">
+              <Link href="/films">
                 <h3 className="font-black text-3xl uppercase mt-10 tracking-tight hover:underline">
                   FILMS
                   <img alt="stars" className="w-7 ml-1 -mt-2 inline" src={`tv.png`} />
                 </h3>
                 <p className="-mt-2 text-xs">collection of cool indie films</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/cafes">
+              <Link href="/cafes">
                 <h3 className="font-black text-3xl uppercase mt-10 tracking-tight hover:underline">
                   CAFES
                   <img alt="stars" className="w-7 ml-0 -mt-1 inline" src={`coffeeCup.png`} />
                 </h3>
                 <p className="-mt-2 text-xs">collection of cool cafes (in abdn)</p>
-              </a>
+              </Link>
             </li>
             <li>
                 <p className="mt-10 text-2xs">...</p>
