@@ -14,7 +14,7 @@ const IndexPage = ({ items }) => {
 
   return (
         <div>
-          <img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" />
+          <a href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" /></a>
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
           <h3 className="text-xs text-center uppercase font-light tracking-tighter">
             my collection of indie films
@@ -36,7 +36,7 @@ const IndexPage = ({ items }) => {
           </div>
 
 
-          <div className="mx-auto my-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-20">
+          <div className="mx-auto my-auto mt-12 sm:mt-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-20">
             {filteredItems.map((obj)=> {
               return (
                 <Film 

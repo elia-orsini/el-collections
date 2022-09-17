@@ -1,7 +1,7 @@
 
 export default function Film(props) {
     return (
-      <div className="mt-10 mx-auto">
+      <div className="sm:mt-10 mt-0 mx-auto">
         <a href={props.link} target="_blank" rel="noreferrer">
             <img alt={props.link} src={props.img} className="w-88 border border-black z-0"/>
         </a>

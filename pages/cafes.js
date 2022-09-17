@@ -5,7 +5,7 @@ import Cafe from '../components/cafe'
 const IndexPage = ({ items }) => {
   return (
         <div>
-          <img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" />
+          <a href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" /></a>
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">
             el&apos;s cafes 
             <img alt="stars" className="w-6 ml-0 -mt-1 inline" src={`coffeeCup.png`} />
