@@ -6,10 +6,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <Head>
-        <title>el&apos;s films</title>
+        <title>el&apos;s collections</title>
         <meta
           name="Description"
-          content="sup i am el"
+          content="elia's collections"
         />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
