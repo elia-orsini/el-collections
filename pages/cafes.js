@@ -15,7 +15,7 @@ const IndexPage = ({ items }) => {
             my collection of cool cafes
           </h3>
           <h3 className="text-2xs text-center uppercase font-light tracking-tighter">
-            in aberdeen
+            in aberdeen, scotland
           </h3>
           <h3 className="absolute w-full pr-6 -mt-10 text-2xs text-right uppercase font-light tracking-tighter hidden sm:block">
             only <span className="font-bold">{items.length}</span> cafes total
@@ -24,7 +24,7 @@ const IndexPage = ({ items }) => {
             only <span className="font-bold">{items.length}</span> cafes total
           </h3>
 
-          <div className="mx-auto my-auto mt-8 sm:mt-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-20">
+          <div className="mx-auto my-auto mt-8 sm:mt-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-28">
             {items.map((obj)=> {
               return (
                 <Cafe 

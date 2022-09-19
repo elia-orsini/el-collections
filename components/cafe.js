@@ -6,10 +6,8 @@ export default function Film(props) {
           {props.title}
         </a>
         <p className="font-extralight tracking-wide text-sm uppercase -mt-2">{props.address}</p>
-        <hr className="border-black sm:my-0 my-1" />
-        <div className="">
-          {props.rating ? (<img alt="stars" className="w-20 -mt-2" src={`${props.rating}stars.png`} />) : null}
-        </div>
+        <hr className="border-black my-0" />
+        {props.rating ? (<img alt="stars" className="w-20 -mt-2 -mb-2" src={`${props.rating}stars.png`} />) : <div className="text-white">.</div>}
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { Client } from "@notionhq/client";
 import Film from '../components/film'
 import Link from "next/link";
@@ -36,8 +36,10 @@ const IndexPage = ({ items }) => {
             </button>
           </div>
 
+          <p className="text-center text-2xs mt-8">click on cover to open trailer</p>
 
-          <div className="mx-auto my-auto mt-12 sm:mt-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-20">
+
+          <div className="mx-auto my-auto mt-8 sm:-mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-28">
             {filteredItems.map((obj)=> {
               return (
                 <Film 
