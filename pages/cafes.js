@@ -24,6 +24,14 @@ const IndexPage = ({ items }) => {
             only <span className="font-bold">{items.length}</span> cafes total
           </h3>
 
+          <div className="text-left w-max mx-auto text-2xs mt-8">
+            <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`1starsb.png`} /> = bad</span>
+            <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`2starsb.png`} /> = good</span>
+            <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`3starsb.png`} /> = great</span>
+            <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`4starsb.png`} /> = amazing</span>
+            <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`5starsb.png`} /> = the best</span>
+          </div>
+
           <div className="mx-auto my-auto mt-8 sm:mt-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:px-10 px-2 mb-28">
             {items.map((obj)=> {
               return (
