@@ -25,7 +25,7 @@ const IndexPage = ({ items }) => {
           </h3>
 
           <div className="text-left w-max mx-auto text-2xs mt-8">
-            <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`1starsb.png`} /> = bad</span>
+            <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`1starsb.png`} /> = ok</span>
             <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`2starsb.png`} /> = good</span>
             <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`3starsb.png`} /> = great</span>
             <span className="block -mt-2"><img alt="stars" className="w-14 mx-auto block inline mr-2" src={`4starsb.png`} /> = amazing</span>
