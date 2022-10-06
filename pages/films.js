@@ -2,7 +2,6 @@ import React, { Suspense, useState } from "react";
 import { Client } from "@notionhq/client";
 import Film from '../components/film'
 import Link from "next/link";
-import { Helmet } from "react-helmet";
 import Head from "next/head";
 
 function checkWatched(item) {
@@ -18,9 +17,9 @@ const IndexPage = ({ items }) => {
   return (
         <div>
           <Head>
-            <meta property="og:title" content="A Step-by-Step Guide to Setting Up Selenium-webdriver with Node.js" data-rh="true" />
-            <meta property="og:description" content="A dummies guide to getting up and running with selenium-webdriver" data-rh="true" />
-            <meta property="og:image" content="https://miro.medium.com/max/812/1*1xhuVp8f2WFUGUByHS8VTg.png" data-rh="true" />
+            <meta property="og:title" content="Title Placeholder" />
+            <meta property="og:description" content="Description Placeholder" />
+            <meta property="og:image" content="https://miro.medium.com/max/812/1*1xhuVp8f2WFUGUByHS8VTg.png" />
           </Head>
           <Link href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" /></Link>
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
