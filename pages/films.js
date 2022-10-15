@@ -17,9 +17,9 @@ const IndexPage = ({ items }) => {
   return (
         <div>
           <Head>
-            <meta property="og:title" content="Title Placeholder" />
-            <meta property="og:description" content="Description Placeholder" />
-            <meta property="og:image" content="https://miro.medium.com/max/812/1*1xhuVp8f2WFUGUByHS8VTg.png" />
+            <meta property="og:title" content="Films" />
+            <meta property="og:description" content="Films" />
+            {/* <meta property="og:image" content="https://miro.medium.com/max/812/1*1xhuVp8f2WFUGUByHS8VTg.png" /> */}
           </Head>
           <Link href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" /></Link>
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
