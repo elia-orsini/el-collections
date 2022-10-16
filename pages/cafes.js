@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { Client } from "@notionhq/client";
 import Cafe from '../components/cafe'
 import Link from "next/link";
+import Head from "next/head";
 
 const IndexPage = ({ items }) => {
   return (
         <div>
-          <Link href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" /></Link>
+          <Head>
+            <meta property="og:title" content="el's Cafes" />
+            <meta property="og:description" content="Cafes" />
+            <meta property="og:image" content="https://i.pinimg.com/564x/ba/11/15/ba1115ecf4e99097e49c7d55a129a176.jpg" />
+          </Head>
+          <Link href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1 cursor-pointer" src="IMG_3400.JPG" /></Link>
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">
             el&apos;s cafes 
             <img alt="stars" className="w-6 ml-0 -mt-1 inline" src={`coffeeCup.png`} />

@@ -18,7 +18,7 @@ const IndexPage = () => {
             <li>
                 <h3 className="font-black text-3xl uppercase mt-10 tracking-tight">
                   <Link href="/films">
-                    <span className="hover:underline">FILMS</span>
+                    <span className="hover:underline cursor-pointer">FILMS</span>
                   </Link>
                   <img alt="stars" className="w-7 ml-1 -mt-2 inline" src={`tv.png`} />
                 </h3>
@@ -28,7 +28,7 @@ const IndexPage = () => {
               <Link href="/cafes">
                 <h3 className="font-black text-3xl uppercase mt-10 tracking-tight">
                   <Link href="/cafes">
-                    <span className="hover:underline">CAFES</span>
+                    <span className="hover:underline cursor-pointer">CAFES</span>
                   </Link>
                   <img alt="stars" className="w-7 ml-0 -mt-1 inline" src={`coffeeCup.png`} />
                 </h3>

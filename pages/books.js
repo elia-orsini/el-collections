@@ -18,9 +18,9 @@ const IndexPage = ({ books }) => {
   return (
         <div>
           <Head>
-            <meta property="og:title" content="Books" />
+            <meta property="og:title" content="el's Books" />
             <meta property="og:description" content="Books" />
-            {/* <meta property="og:image" content="https://miro.medium.com/max/812/1*1xhuVp8f2WFUGUByHS8VTg.png" /> */}
+            <meta property="og:image" content="https://i.pinimg.com/564x/ba/11/15/ba1115ecf4e99097e49c7d55a129a176.jpg" />
           </Head>
           <Link href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" /></Link>
           <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
@@ -37,7 +37,7 @@ const IndexPage = ({ books }) => {
           <p className="text-center text-2xs mt-8">
             i want to read <b>60</b> books this year. <br />
             to do that i need to read one book every <b>{booksADay}</b> days <br />
-            until the end of the year (which is 77 days away).
+            until the end of the year (which is {diffDays} days away).
           </p>
 
           <div className="my-auto mt-10">
