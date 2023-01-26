@@ -44,7 +44,7 @@ const IndexPage = () => {
               <img alt="stars" className="w-7 ml-1 -mt-1 inline" src={`booksIcon.png`} />
             </h3>
           </Link>
-          <p className="-mt-2 text-xs">collection of books i've read this year</p>
+          <p className="-mt-2 text-xs">collection of books i&apos;ve read this year</p>
         </li>
         <li>
           <p className="mt-10 text-2xs">...</p>
