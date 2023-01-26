@@ -1,7 +1,7 @@
 
 export default function Book(props) {
   return (
-    <div className="sm:mt-10 mt-0 mx-auto border border-black font-semibold rounded px-2 sm:w-80 w-72">
+    <div className="sm:mt-2 mt-2 mx-auto border border-black font-semibold rounded px-2 sm:w-80 w-72">
       {props.title}
       <p className="font-normal tracking-wide text-sm uppercase">{props.author}</p>
       <hr className="border-black my-0" />

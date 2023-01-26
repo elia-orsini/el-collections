@@ -11,7 +11,7 @@ const IndexPage = () => {
       </h3>
 
       <h3 className="absolute w-full pr-6 -mt-10 text-2xs text-right uppercase font-light tracking-tighter hidden sm:block">
-        <span className="font-bold">2</span> active collections
+        <span className="font-bold">3</span> active collections
       </h3>
 
       <ul className="mx-auto text-center my-auto mt-40">
