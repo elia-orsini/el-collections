@@ -7,14 +7,16 @@ import Head from "next/head";
 const IndexPage = ({ books }) => {
 
   const oneDay = 24 * 60 * 60 * 1000;
-  const firstDate = new Date(2024, 0, 1);
+  const lastDay = new Date(2024, 0, 1);
+  const firstDay = new Date(2023, 0, 1);
   const secondDate = new Date();
 
-  const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+  const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
+  const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
 
   // const booksRead = books[0].properties.BOOKS_READ.number;
   const booksRead = books.length;
-  const booksADay = (diffDays / (60 - booksRead)).toFixed(2)
+  const booksADay = (remainingDays / (60 - booksRead)).toFixed(2)
 
   return (
     <div>
@@ -38,7 +40,7 @@ const IndexPage = ({ books }) => {
       <p className="text-center text-2xs mt-8">
         i want to read <b>60</b> books this year. <br />
         to do that i need to read one book every <b>{booksADay}</b> days <br />
-        until the end of the year (which is {diffDays} days away).
+        until the end of the year (which is {remainingDays} days away).
       </p>
 
       <div className="my-auto mt-10">
@@ -53,8 +55,11 @@ const IndexPage = ({ books }) => {
             <p className="text-base -mt-3">books read</p>
           </div>
           <div>
-            <p className="text-5xl font-black">{diffDays}</p>
-            <p className="text-base -mt-3">days remaining</p>
+            <p className="text-5xl font-black">{passedDays}</p>
+            <p className="text-base -mt-3">
+              days passed<br />
+              ({passedDays / 7} weeks)
+            </p>
           </div>
         </div>
       </div>
