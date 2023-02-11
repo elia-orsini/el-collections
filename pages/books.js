@@ -62,7 +62,7 @@ const IndexPage = ({ books }) => {
       </div>
 
       <div className="text-center mt-20">
-        books read
+        books read in 2023
       </div>
       {books.map((book) => {
         return (
