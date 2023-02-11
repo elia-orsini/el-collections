@@ -1,5 +1,5 @@
 {
-  "name": "el films",
+  "name": "el_films",
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.5.1",
+    "@mdx-js/react": "^1.6.18",
+    "@mdx-js/mdx": "^0.9.0",
+    "@mdx-js/tag": "^0.20.3",
+    "@next/mdx": "^13.1.6",
     "@notionhq/client": "1.0.4",
+    "@zeit/next-mdx": "^1.2.0",
+    "gray-matter": "^4.0.3",
     "next": "12.2.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",

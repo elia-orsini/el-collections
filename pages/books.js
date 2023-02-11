@@ -1,4 +1,5 @@
-import React, { Suspense, useState } from "react";
+import 'tailwindcss/tailwind.css';
+import React from "react";
 import { Client } from "@notionhq/client";
 import Book from '../components/book'
 import Link from "next/link";
@@ -14,9 +15,11 @@ const IndexPage = ({ books }) => {
   const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
 
-  // const booksRead = books[0].properties.BOOKS_READ.number;
+
   const booksRead = books.length;
   const booksADay = (remainingDays / (60 - booksRead)).toFixed(2)
+
+  console.log(books)
 
   return (
     <div>
@@ -30,12 +33,6 @@ const IndexPage = ({ books }) => {
       <h3 className="text-xs text-center uppercase font-light tracking-tighter">
         books stats to help me
       </h3>
-      {/* <h3 className="absolute w-full pr-6 -mt-10 text-2xs text-right uppercase font-light tracking-tighter hidden sm:block">
-            <span className="font-bold">{items.length}</span> films total &nbsp;&nbsp;|&nbsp;&nbsp;  <span className="font-bold">{items.filter(checkWatched).length}</span> watched
-          </h3>
-          <h3 className="text-2xs text-center uppercase font-light tracking-tighter sm:hidden">
-            <span className="font-bold">{items.length}</span> films total &nbsp;&nbsp;|&nbsp;&nbsp;  <span className="font-bold">{items.filter(checkWatched).length}</span> watched
-          </h3> */}
 
       <p className="text-center text-2xs mt-8">
         i want to read <b>60</b> books this year. <br />
@@ -70,10 +67,12 @@ const IndexPage = ({ books }) => {
       {books.map((book) => {
         return (
           <Book
-            key={book.properties.TITLE.title[0].text.content}
+            key={book.id}
+            id={book.id}
             title={book.properties.TITLE.title[0].text.content}
             author={book.properties.AUTHOR.rich_text[0].text.content}
             dateFinished={book.properties.DATE_READ.date.start}
+            link={book.properties.LINK.checkbox}
           />
         );
       })}
