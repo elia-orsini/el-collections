@@ -14,6 +14,7 @@ const IndexPage = ({ books }) => {
 
   const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
+  const passedWeeks = Math.floor(passedDays / 7);
 
 
   const booksRead = books.length;
@@ -22,66 +23,70 @@ const IndexPage = ({ books }) => {
   console.log(books)
 
   return (
-    <div>
+    <div className='flex flex-col h-screen text-center'>
       <Head>
         <meta property="og:title" content="el's Books" />
         <meta property="og:description" content="Books" />
         <meta property="og:image" content="https://i.pinimg.com/564x/ba/11/15/ba1115ecf4e99097e49c7d55a129a176.jpg" />
       </Head>
-      <Link href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1" src="IMG_3400.JPG" /></Link>
-      <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
-      <h3 className="text-xs text-center uppercase font-light tracking-tighter">
-        books stats to help me
-      </h3>
 
-      <p className="text-center text-2xs mt-8">
-        i want to read <b>60</b> books this year. <br />
-        to do that i need to read one book every <b>{booksADay}</b> days <br />
-        until the end of the year (which is {remainingDays} days away).
-      </p>
+      <div className='w-full flex mt-4'>
+        <Link href="/">
+          <img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1 cursor-pointer" src="IMG_3400.JPG" />
+        </Link>
 
-      <div className="my-auto mt-10">
-        <div className="mx-auto my-auto w-full text-center">
-          <p className="text-6xl font-black">{booksADay}</p>
-          <p className="text-base -mt-3">days to read a book</p>
-        </div>
-
-        <div className="mx-auto my-auto sm:w-3/5 lg:w-2/5 text-center pt-10 grid grid-cols-2">
-          <div>
-            <p className="text-5xl font-black">{booksRead}</p>
-            <p className="text-base -mt-3">books read</p>
-          </div>
-          <div>
-            <p className="text-5xl font-black">{passedDays}</p>
-            <p className="text-base -mt-3">
-              days passed<br />
-              ({passedDays / 7} weeks)
-            </p>
-          </div>
+        <div className='mx-auto'>
+          <h1 className="font-semibold text-xl lowercase tracking-wide">el&apos;s books</h1>
+          <h3 className="text-xs uppercase font-light tracking-tighter">books stats to help me</h3>
         </div>
       </div>
 
-      <div className="text-center mt-20">
+      <div className="text-center text-xs mt-4">
+        the goal is to read <b>60</b> books this year. <br />
+      </div>
+
+      <div className="mx-auto mt-4 sm:w-3/5 lg:w-2/5 text-center grid grid-cols-3">
+        <div>
+          <p className="text-3xl font-black">{booksRead}</p>
+          <p className="text-xs -mt-1">books read</p>
+        </div>
+
+        <div className="">
+          <p className="text-3xl font-black">{booksADay}</p>
+          <p className="text-xs -mt-1">days to read a book</p>
+        </div>
+
+        <div>
+          <p className="text-3xl font-black">{passedDays}</p>
+          <p className="text-xs -mt-1">
+            days passed<br />
+            ({passedWeeks} weeks)
+          </p>
+        </div>
+      </div>
+
+      <div className="text-center mx-auto my-auto">
         books read in 2023
+        {books.map((book) => {
+          return (
+            <Book
+              key={book.id}
+              id={book.id}
+              title={book.properties.TITLE.title[0].text.content}
+              author={book.properties.AUTHOR.rich_text[0].text.content}
+              dateFinished={book.properties.DATE_READ.date.start}
+              link={book.properties.LINK.checkbox}
+            />
+          );
+        })}
       </div>
-      {books.map((book) => {
-        return (
-          <Book
-            key={book.id}
-            id={book.id}
-            title={book.properties.TITLE.title[0].text.content}
-            author={book.properties.AUTHOR.rich_text[0].text.content}
-            dateFinished={book.properties.DATE_READ.date.start}
-            link={book.properties.LINK.checkbox}
-          />
-        );
-      })}
 
-      <p className="text-center text-xs mb-10 mt-40">
+      <div className="w-full text-xs mb-4">
         made by el © 2022<br />
         <span className="text-2xs">contact me if u want a site like this for yourself</span><br />
         <a href="https://elia-orsini.com" rel="noreferrer" target="_blank" className="text-2xs text-blue-600 underline">my real website</a>
-      </p>
+      </div>
+
     </div>
   );
 };

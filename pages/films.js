@@ -23,7 +23,7 @@ const IndexPage = ({ items }) => {
         <meta property="og:image" content="https://i.pinimg.com/564x/ba/11/15/ba1115ecf4e99097e49c7d55a129a176.jpg" />
       </Head>
       <Link href="/"><img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1 cursor-pointer" src="IMG_3400.JPG" /></Link>
-      <h1 className="font-bold text-xl text-center uppercase tracking-wide">el&apos;s films</h1>
+      <h1 className="font-bold text-xl text-center tracking-wide">el&apos;s films</h1>
       <h3 className="text-xs text-center uppercase font-light tracking-tighter">
         my collection of indie films
       </h3>
