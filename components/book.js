@@ -1,5 +1,6 @@
 export default function Book(props) {
   const options = { month: "long", day: "numeric" };
+
   return (
     <a href={props.link ? `bookNotes/${props.id}` : "#"}>
       <div

@@ -1,10 +1,11 @@
 import "tailwindcss/tailwind.css";
 import React from "react";
 import { Client } from "@notionhq/client";
-import Cafe from "@components/Cafe";
 import Link from "next/link";
+
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+import Cafe from "@components/Cafe";
 
 const IndexPage = ({ items }) => {
   return (

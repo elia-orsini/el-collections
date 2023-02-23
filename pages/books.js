@@ -1,10 +1,11 @@
 import "tailwindcss/tailwind.css";
 import React from "react";
 import { Client } from "@notionhq/client";
-import Book from "@components/Book";
 import Link from "next/link";
+
 import Footer from "@components/Footer";
 import Header from "@components/Header";
+import Book from "@components/Book";
 
 const IndexPage = ({ books }) => {
   const oneDay = 24 * 60 * 60 * 1000;
