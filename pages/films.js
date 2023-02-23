@@ -1,11 +1,10 @@
 import "tailwindcss/tailwind.css";
 import React, { useState } from "react";
 import { Client } from "@notionhq/client";
-import Film from "../components/Film";
+import Film from "@components/Film";
 import Link from "next/link";
-import Head from "next/head";
 import Footer from "@components/Footer";
-import Header from "@components/header";
+import Header from "@components/Header";
 
 function checkWatched(item) {
   const itemStatus = item.properties.STATUS.select;
