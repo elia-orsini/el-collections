@@ -6,6 +6,7 @@ import Link from "next/link";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Book from "@components/Book";
+import Title from "@components/Title";
 
 const IndexPage = ({ books }) => {
   const oneDay = 24 * 60 * 60 * 1000;
@@ -26,22 +27,13 @@ const IndexPage = ({ books }) => {
     <>
       <Header title="el's Books" description="Books" />
 
-      <div className="w-full flex mt-4 text-center">
-        <Link href="/">
-          <img alt="el-logo" className="absolute ml-2 sm:ml-6 w-10 mt-1 cursor-pointer" src="IMG_3400.JPG" />
-        </Link>
+      <Title leftSide={<></>} />
 
-        <div className="mx-auto">
-          <h1 className="font-semibold text-xl lowercase tracking-wide">el&apos;s books</h1>
-          <h3 className="text-xs uppercase font-light tracking-tighter">books stats to help me</h3>
-        </div>
-      </div>
-
-      <div className="text-center text-xs mt-4">
+      <div className="text-center text-xs mt-8 w-72 mx-auto border border-black">
         the goal is to read <b>60</b> books this year. <br />
       </div>
 
-      <div className="mx-auto mt-4 sm:w-3/5 lg:w-2/5 text-center grid grid-cols-3">
+      <div className="mx-auto mt-8 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
         <div>
           <p className="text-3xl font-black">{booksRead}</p>
           <p className="text-xs -mt-1">books read</p>
@@ -61,8 +53,7 @@ const IndexPage = ({ books }) => {
         </div>
       </div>
 
-      <div className="text-center mx-auto my-auto">
-        books read in 2023
+      <div className="text-center mx-auto my-auto mt-6 mb-8">
         {books.map((book) => {
           return (
             <Book
@@ -95,7 +86,7 @@ export const getStaticProps = async () => {
     props: {
       books: data.results,
     },
-    revalidate: 10,
+    revalidate: 30,
   };
 };
 
