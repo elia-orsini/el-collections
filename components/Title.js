@@ -25,7 +25,7 @@ export default function Title({ leftSide }) {
               leftSide
             ) : (
               <span>
-                <span className="font-bold">3</span> active collections
+                <span className="font-bold">4</span> active collections
               </span>
             )}
           </h3>
