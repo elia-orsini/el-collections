@@ -38,7 +38,7 @@ const IndexPage = ({ items }) => {
       <div className="flex-1 mx-auto my-auto">
         <button
           className={`mt-8 block border text-xs py-1 w-72 mx-auto cursor-pointer ${
-            switchEvents ? "bg-black text-white" : "text-black border-black"
+            switchEvents ? "bg-black text-white border-black" : "text-black border-black"
           }`}
           onClick={() => setSwitch(!switchEvents)}
         >
