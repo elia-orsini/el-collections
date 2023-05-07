@@ -66,7 +66,7 @@ const IndexPage = ({ items }) => {
         </div>
       </div>
 
-      <div className="mx-auto my-auto mt-8 p-2 sm:p-4 sm:border border-black sm:bg-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+      <div className="mx-auto my-auto mt-8 p-2 sm:p-4 order border-black g-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
         {items.map((obj) => {
           return (
             <Cafe

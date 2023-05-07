@@ -38,7 +38,7 @@ const IndexPage = () => {
               </div>
             </Link>
 
-            <Link href="/cafes">
+            <Link href="/ediCafes">
               <div className="h-20 border-t border-b border-black my-10 cursor-pointer">
                 <p className="font-black text-4xl uppercase tracking-tight hover:underline">
                   EDI CAFES
