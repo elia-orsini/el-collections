@@ -1,10 +1,28 @@
 import "tailwindcss/tailwind.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Footer from "@components/Footer";
 import Title from "@components/Title";
 
 const IndexPage = () => {
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  function handleResize() {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }
+
+  console.log(windowSize);
+
+  // Listen for window resize events
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="h-screen font-sans">
       <Title />
@@ -12,10 +30,8 @@ const IndexPage = () => {
       <div
         className="h-5/6"
         style={{
-          backgroundImage: `url(/grid.svg)`,
-          backgroundSize: "62.1px",
-          backgroundPositionY: "-1px",
-          // backgroundPositionX: "-7px",
+          // backgroundImage: `url(/grid.svg)`,
+          backgroundSize: `5%`
         }}
       >
         <div className="flex bg-white h-full w-72 mx-auto border-r border-l border-black">

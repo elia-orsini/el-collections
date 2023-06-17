@@ -45,7 +45,7 @@ const IndexPage = ({ items }) => {
           {switchEvents ? "show all" : "show only watched"}
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-8 p-2 sm:p-4 border border-black bg-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 my-8">
           {filteredItems.map((obj) => {
             return (
               <Film

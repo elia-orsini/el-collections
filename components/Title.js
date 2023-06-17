@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Title({ leftSide }) {
   return (
-    <div className="w-full bg-white flex border-t border-b border-black grid lg:grid-cols-3">
+    <div className="w-full bg-white flex border-t border-b border-black grid lg:grid-cols-3 z-10">
       <div className="w-max h-full border-r border-black hidden lg:flex cursor-pointer">
         <Link href={"/"}>
           <img alt="el-logo" className="mx-6 my-auto w-10" src="IMG_3400.JPG" />
