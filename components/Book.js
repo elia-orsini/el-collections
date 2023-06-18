@@ -8,7 +8,7 @@ export default function Book(props) {
           props.link ? "cursor-pointer" : "cursor-default"
         }`}
       >
-        <p>{props.title}</p>
+        <p className="lowercase">{props.title}</p>
         <p className="font-normal tracking-wide text-sm uppercase">
           {props.author}
         </p>

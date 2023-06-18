@@ -10,7 +10,7 @@ import Title from "@components/Title";
 
 const IndexPage = ({ items }) => {
   return (
-    <>
+    <div className="h-screen min-h-screen font-sans flex-col flex justify-between">
       <Header title="el's Cafes" description="Cafes" />
 
       <Title
@@ -81,7 +81,7 @@ const IndexPage = ({ items }) => {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

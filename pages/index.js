@@ -5,72 +5,42 @@ import Footer from "@components/Footer";
 import Title from "@components/Title";
 
 const IndexPage = () => {
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  function handleResize() {
-    setWindowSize({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  }
-
-  console.log(windowSize);
-
-  // Listen for window resize events
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   return (
-    <div className="h-screen font-sans">
+    <div className="h-screen min-h-screen font-sans flex-col flex justify-between">
       <Title />
 
       <div
-        className="h-5/6"
+        className="h-full"
         style={{
           // backgroundImage: `url(/grid.svg)`,
-          backgroundSize: `5%`
+          backgroundSize: `5%`,
         }}
       >
-        <div className="flex bg-white h-full w-72 mx-auto border-r border-l border-black">
-          <div className="w-full mx-auto my-auto text-center flex-1">
-            <Link href="/films">
-              <div className="h-20 border-t border-b border-black my-10 cursor-pointer">
-                <p className="font-black text-4xl uppercase tracking-tight hover:underline">
+        <div className="flex bg-white my-auto mx-4 sm:mx-20 h-full border-r border-l border-black">
+          <div className="w-full my-auto text-center flex-1">
+            <div className="flex h-20 border-black my-10">
+              <Link href="/films">
+                <p className="mx-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
                   FILMS
                 </p>
-                <p className="text-xs">indie films only</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
 
-            <Link href="/cafes">
-              <div className="h-20 border-t border-b border-black my-10 cursor-pointer">
-                <p className="font-black text-4xl uppercase tracking-tight hover:underline">
-                  ABDN CAFES
+            <div className="flex h-20 border-black my-10">
+              <Link href="/edicafes">
+                <p className="mx-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
+                  CAFES
                 </p>
-                <p className="text-xs">cool cafes (in abdn)</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
 
-            <Link href="/ediCafes">
-              <div className="h-20 border-t border-b border-black my-10 cursor-pointer">
-                <p className="font-black text-4xl uppercase tracking-tight hover:underline">
-                  EDI CAFES
-                </p>
-                <p className="text-xs">cool cafes (in edi)</p>
-              </div>
-            </Link>
-
-            <Link href="/books">
-              <div className="h-20 border-t border-b border-black my-10 cursor-pointer">
-                <p className="font-black text-4xl uppercase tracking-tight hover:underline">
+            <div className="flex h-20 border-black my-10">
+              <Link href="/books">
+                <p className="mx-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
                   BOOKS
                 </p>
-                <p className="text-xs">books i&apos;ve read this year</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

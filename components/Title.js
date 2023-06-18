@@ -5,12 +5,12 @@ export default function Title({ leftSide }) {
     <div className="w-full bg-white flex border-t border-b border-black grid lg:grid-cols-3 z-10">
       <div className="w-max h-full border-r border-black hidden lg:flex cursor-pointer">
         <Link href={"/"}>
-          <img alt="el-logo" className="mx-6 my-auto w-10" src="IMG_3400.JPG" />
+          <img alt="el-logo" className="mx-5 my-auto w-10" src="IMG_3400.JPG" />
         </Link>
       </div>
 
       <div className="mx-auto py-3 w-72 border-r border-l border-black flex-1 text-center">
-        <h1 className="font-semibold text-xl lowercase tracking-wide text-center">
+        <h1 className="text-xl font-light lowercase tracking-tight text-center">
           el&apos;s collections
         </h1>
         <h3 className="text-xs uppercase font-light tracking-tighter">
@@ -25,7 +25,7 @@ export default function Title({ leftSide }) {
               leftSide
             ) : (
               <span>
-                <span className="font-bold">4</span> active collections
+                <span className="font-bold">3</span> active collections
               </span>
             )}
           </h3>
