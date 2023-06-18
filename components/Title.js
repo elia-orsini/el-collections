@@ -4,7 +4,7 @@ export default function Title({ leftSide }) {
   return (
     <div className="w-full bg-white flex border-t border-b border-black grid lg:grid-cols-3 z-10">
       <div className="w-max h-full border-r border-black hidden lg:flex cursor-pointer">
-        <Link href={"/"}>
+        <Link href={"/"} passHref>
           <img alt="el-logo" className="mx-5 my-auto w-10" src="IMG_3400.JPG" />
         </Link>
       </div>
