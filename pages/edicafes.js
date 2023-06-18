@@ -1,7 +1,6 @@
 import "tailwindcss/tailwind.css";
 import React from "react";
 import { Client } from "@notionhq/client";
-import Link from "next/link";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";
