@@ -13,30 +13,30 @@ const IndexPage = () => {
         className="h-full"
         style={{
           // backgroundImage: `url(/grid.svg)`,
-          backgroundSize: `5%`,
+          // backgroundSize: `5%`,
         }}
       >
         <div className="flex bg-white my-auto mx-4 sm:mx-20 h-full border-r border-l border-black">
           <div className="w-full my-auto text-center flex-1">
-            <div className="flex h-20 border-black my-10">
+            <div className="flex border-black my-10">
               <Link href="/films" passHref>
-                <p className="mx-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
+                <p className="mx-auto my-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
                   FILMS
                 </p>
               </Link>
             </div>
 
-            <div className="flex h-20 border-black my-10">
-              <Link href="/edicafes" passHref>
-                <p className="mx-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
+            <div className="flex border-black my-10">
+              <Link href="/ediCafes" passHref>
+                <p className="mx-auto my-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
                   CAFES
                 </p>
               </Link>
             </div>
 
-            <div className="flex h-20 border-black my-10">
+            <div className="flex border-black my-10">
               <Link href="/books" passHref>
-                <p className="mx-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
+                <p className="mx-auto my-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
                   BOOKS
                 </p>
               </Link>

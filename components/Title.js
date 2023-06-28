@@ -18,7 +18,7 @@ export default function Title({ leftSide }) {
         </h3>
       </div>
 
-      <div className="flex h-full justify-self-end">
+      <div className="flex h-full justify-self-end hidden sm:block">
         <div className="border-l border-black h-full flex">
           <h3 className="px-6 my-auto text-2xs text-right uppercase font-light tracking-tighter hidden lg:block">
             {leftSide ? (
