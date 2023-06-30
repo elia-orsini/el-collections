@@ -27,7 +27,7 @@ const IndexPage = () => {
             </div>
 
             <div className="flex border-black my-10">
-              <Link href="/ediCafes" passHref>
+              <Link href="/cafes" passHref>
                 <p className="mx-auto my-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
                   CAFES
                 </p>
