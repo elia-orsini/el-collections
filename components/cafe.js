@@ -9,21 +9,25 @@ export default function Cafe(props) {
         href={props.link}
         target={props.link != "#" ? "_blank" : ""}
         rel="noreferrer"
-        className={`font-black text-2xl uppercase mt-2 tracking-tight ${
+        className={`font-black text-2xl uppercase tracking-tight ${
           props.rating === -1 && `line-through`
-        }`}
+        }
+        `}
       >
-        {props.title}
+        {props.title.length > 17
+          ? props.title.slice(0, 17) + ".."
+          : props.title}
       </a>
-      <p className="font-extralight tracking-wide text-sm uppercase -mt-2">
+
+      <p className="font-extralight tracking-wide text-sm uppercase">
         {props.address}
       </p>
 
-      {props.rating === -1 ? (
-        <hr className="border-white my-0" />
-      ) : (
-        <hr className="border-black my-0" />
-      )}
+      <hr
+        className={`my-0 ${
+          props.rating === -1 ? "border-white" : "border-black"
+        }`}
+      />
 
       {props.rating > 0 && (
         <img
