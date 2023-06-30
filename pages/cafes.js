@@ -13,7 +13,7 @@ const IndexPage = ({ abdn, edi }) => {
 
   useEffect(() => {
     showEdi ? setToShow(edi) : setToShow(abdn);
-  }, [showEdi]);
+  }, [showEdi, abdn, edi]);
 
   return (
     <div className="sm:h-screen min-h-screen font-sans flex-col flex justify-between">
@@ -31,7 +31,7 @@ const IndexPage = ({ abdn, edi }) => {
         <RatingsExplanation />
 
         <button
-          class="flex mx-auto my-6 bg-black text-sm"
+          className="flex mx-auto my-6 bg-black text-sm"
           onClick={() => setShowEdi(!showEdi)}
         >
           <span
