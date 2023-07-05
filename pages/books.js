@@ -25,7 +25,7 @@ const IndexPage = ({ books }) => {
 
   return (
     <>
-      <Header title="el's Books" description="Books" />
+      <Header title="el's books" description="books i have read the past year." />
 
       <Title leftSide={<></>} />
 
