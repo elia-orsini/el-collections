@@ -18,6 +18,14 @@ const IndexPage = () => {
       >
         <div className="flex bg-white my-auto mx-4 sm:mx-20 h-full border-r border-l border-black">
           <div className="w-full my-auto text-center flex-1">
+          <div className="flex border-black my-10">
+              <Link href="#" passHref>
+                <p className="mx-auto my-auto cursor-pointer line-through text-7xl uppercase tracking-tight hover:text-gray-700">
+                  BLOG
+                </p>
+              </Link>
+            </div>
+
             <div className="flex border-black my-10">
               <Link href="/films" passHref>
                 <p className="mx-auto my-auto cursor-pointer text-7xl uppercase tracking-tight hover:text-gray-700">
