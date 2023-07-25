@@ -9,7 +9,7 @@ import Title from "@components/Title";
 const Coffee = ({ blockMap }) => {
   return (
     <div className="sm:h-screen min-h-screen font-sans flex-col flex justify-between">
-      <Header title="el's cafes" description="cafes in edinburgh i luv." img="https://i.pinimg.com/564x/76/70/a4/7670a43c9ee6405dd84f523307201558.jpg" />
+      <Header title="coffee" description="everything i care to know about coffee." img="https://i.pinimg.com/564x/76/70/a4/7670a43c9ee6405dd84f523307201558.jpg" />
 
       <Title leftSide={
           <span>
