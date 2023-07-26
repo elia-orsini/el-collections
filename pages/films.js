@@ -76,7 +76,7 @@ export const getStaticProps = async () => {
   });
 
   const data = await notion.databases.query({
-    database_id: process.env.ID,
+    database_id: process.env.FILMS,
   });
 
   return {

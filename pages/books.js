@@ -79,7 +79,7 @@ export const getStaticProps = async () => {
   });
 
   const data = await notion.databases.query({
-    database_id: process.env.ID3,
+    database_id: process.env.BOOKS,
   });
 
   return {
