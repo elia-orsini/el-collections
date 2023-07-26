@@ -19,13 +19,14 @@ const Coffee = ({ blogPosts }) => {
       <Title
         leftSide={
           <span>
-            only <span className="font-bold">{blogPosts.length}</span> blog posts
+            only <span className="font-bold">{blogPosts.length}</span> blog
+            posts
           </span>
         }
       />
 
       {blogPosts.map((blogPost) => (
-        <Link href={`/blog/${blogPost.id}`} passHref>
+        <Link key={blogPost.id} href={`/blog/${blogPost.id}`} passHref>
           <p className="mx-auto">{blogPost.title}</p>
         </Link>
       ))}
