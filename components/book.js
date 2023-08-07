@@ -4,11 +4,11 @@ export default function Book(props) {
   return (
     <a href={props.link ? `bookNotes/${props.id}` : "#"}>
       <div
-        className={`mt-2 mx-auto border bg-white border-black font-semibold px-2 w-72 hover:bg-gray-100 text-left ${
+        className={`mt-2 mx-auto border bg-white h-full border-black font-semibold px-2 w-72 hover:bg-gray-100 text-left ${
           props.link ? "cursor-pointer" : "cursor-default"
         }`}
       >
-        <p className="lowercase">{props.title}</p>
+        <p className="lowercase line-clamp-1">{props.title}</p>
         <p className="font-normal tracking-wide text-sm uppercase">
           {props.author}
         </p>

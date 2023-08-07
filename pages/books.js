@@ -18,10 +18,9 @@ const IndexPage = ({ books }) => {
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
   const passedWeeks = Math.floor(passedDays / 7);
 
+  const booksToRead = 30;
   const booksRead = books.length;
-  const booksADay = (remainingDays / (60 - booksRead)).toFixed(2);
-
-  console.log(books);
+  const booksADay = (remainingDays / (booksToRead - booksRead)).toFixed(2);
 
   return (
     <>
@@ -30,7 +29,7 @@ const IndexPage = ({ books }) => {
       <Title leftSide={<></>} />
 
       <div className="text-center text-xs mt-8 w-72 mx-auto border border-black">
-        the goal is to read <b>60</b> books this year. <br />
+        the goal is to read <b>{booksToRead}</b> books this year. <br />
       </div>
 
       <div className="mx-auto mt-8 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
@@ -53,7 +52,7 @@ const IndexPage = ({ books }) => {
         </div>
       </div>
 
-      <div className="text-center mx-auto my-auto mt-6 mb-8">
+      <div className="text-center mx-auto my-auto mt-6 mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
         {books.map((book) => {
           return (
             <Book
