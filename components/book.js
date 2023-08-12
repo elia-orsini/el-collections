@@ -4,18 +4,20 @@ export default function Book(props) {
   return (
     <a href={props.link ? `bookNotes/${props.id}` : "#"}>
       <div
-        className={`mt-2 mx-auto border bg-white h-full border-black font-semibold px-2 w-72 hover:bg-gray-100 text-left ${
+        className={`mt-2 mx-auto border bg-white h-full border-black font-semibold w-72 hover:bg-gray-100 text-left ${
           props.link ? "cursor-pointer" : "cursor-default"
         }`}
       >
-        <p className="lowercase line-clamp-1">{props.title}</p>
-        <p className="font-normal tracking-wide text-sm uppercase">
-          {props.author}
-        </p>
+        <div className="pb-1">
+          <p className="lowercase line-clamp-1 px-2">{props.title}</p>
+          <p className="font-normal tracking-wide text-sm uppercase px-2">
+            {props.author}
+          </p>
+        </div>
 
-        <hr className="border-black my-0" />
+        <hr className="border-black" />
 
-        <p className="text-sm font-light inline">
+        <p className="text-sm font-light inline pl-2">
           {new Date(props.dateFinished).toLocaleDateString("en-GB", options)}
         </p>
         {props.link && (

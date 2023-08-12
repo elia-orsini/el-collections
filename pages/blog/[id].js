@@ -8,7 +8,7 @@ import Title from "@components/Title";
 
 const BlogPost = ({ blockMap }) => {
   return (
-    <div className="sm:h-screen min-h-screen font-sans flex-col flex justify-between">
+    <div className="h-screen min-h-screen font-sans flex-col flex">
       <Header
         title="blog post"
         description="..."
@@ -22,7 +22,7 @@ const BlogPost = ({ blockMap }) => {
         }
       />
 
-      <div className="my-10 mx-auto w-11/12 sm:w-8/12">
+      <div className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star">
         <NotionRenderer blockMap={blockMap} />
       </div>
 
