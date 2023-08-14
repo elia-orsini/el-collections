@@ -6,24 +6,38 @@ import "react-notion/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import Title from "@components/Title";
 
-const BlogPost = ({ blockMap }) => {
+const BlogPost = ({ blockMap, blogPostInfo }) => {
+  console.log(blogPostInfo.bgImage[0].url);
   return (
-    <div className="h-screen min-h-screen font-sans flex-col flex">
-      <Header
-        title="blog post"
-        description="..."
-      />
+    <div className="min-h-screen font-sans flex-col flex">
+      <Header title="blog post" description="..." />
 
-      <Title
-        leftSide={
-          <span>
-            blog post
-          </span>
-        }
-      />
+      <Title leftSide={<span>{blogPostInfo.title}</span>} />
 
-      <div className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star">
-        <NotionRenderer blockMap={blockMap} />
+      <div
+        className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star blur blur-lg"
+      >
+        <div
+          style={{
+            backgroundImage: `url(${blogPostInfo.bgImage[0].url})`,
+            fontFamily: "handwriting",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            height: "50vh",
+          }}
+          className="flex mb-10"
+        >
+          <h1 className="mx-auto my-auto text-white text-6xl text-center leading-3">
+            {blogPostInfo.title}
+          {blogPostInfo.inProgress && (<p className="text-4xl text-red-700">not available yet</p>)}
+          </h1>
+        </div>
+
+        <div
+          style={{ filter: blogPostInfo.inProgress ? "blur(10px)" : "none" }}
+        >
+          <NotionRenderer blockMap={blockMap} />
+        </div>
       </div>
 
       <Footer />
@@ -36,9 +50,16 @@ export async function getStaticProps({ params }) {
     `https://notion-api.splitbee.io/v1/page/${params.id}`
   ).then((res) => res.json());
 
+  const data = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${process.env.BLOG}`
+  ).then((res) => res.json());
+
+  const blogPost = data.find((post) => post.id === params.id);
+
   return {
     props: {
       blockMap: page,
+      blogPostInfo: blogPost,
     },
     revalidate: 10, // revalidate every 10 seconds
   };
@@ -46,8 +67,8 @@ export async function getStaticProps({ params }) {
 
 export const getStaticPaths = async () => {
   return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: "blocking", //indicates the type of fallback
+    paths: [],
+    fallback: "blocking",
   };
 };
 

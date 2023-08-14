@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
           content="elia's collections"
         />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link href="/fonts/style.css" rel="stylesheet"/>
       </Head>
 
       <Component {...pageProps} />

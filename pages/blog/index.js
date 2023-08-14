@@ -85,18 +85,22 @@ const Coffee = ({ blogPosts }) => {
 
       <div className="h-full mx-auto flex flex-col w-4/5">
         <div className="mt-10 w-full flex flex-col">
-
-          <div className="flex grid text-sm grid-cols-3 w-full">
-            <p className="my-auto">all posts</p>
-            <p className="my-auto text-center">as of</p>
-            <p className="my-auto text-right">{getDate()}</p>
+          <div className="text-sm grid-cols-3 w-full flex flex-col text-center sm:grid">
+            <p className="my-auto sm:text-left">all posts</p>
+            <p className="my-auto">as of</p>
+            <p className="my-auto sm:text-right">{getDate()}</p>
           </div>
 
+          <hr className="border-black mt-2" />
+
           <div className="text-left mt-10">
-            {blogPosts.map((blogPost) => (
+            {blogPosts.map((blogPost, index) => (
               <Link key={blogPost.id} href={`/blog/${blogPost.id}`} passHref>
-                <div className="w-max pl-14 my-2">
-                  <p className="text-2xl sm:text-3xl cursor-pointer font-black tracking-tighter uppercase border border-black px-2">
+                <div className="w-max mx-auto my-2">
+                  <p className="text-3xl cursor-pointer font-black tracking-tighter uppercase border border-black px-2">
+                    <span className="font-extrabold text-sm mr-1">
+                      {index + 1}
+                    </span>
                     {blogPost.title}
                   </p>
                 </div>
