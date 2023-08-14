@@ -83,7 +83,7 @@ const Coffee = ({ blogPosts }) => {
         }
       />
 
-      <div className="h-full mx-auto flex flex-col w-4/5">
+      <div className="h-full min-h-screen mx-auto flex flex-col w-4/5">
         <div className="mt-10 w-full flex flex-col">
           <div className="text-sm grid-cols-3 w-full flex flex-col text-center sm:grid">
             <p className="my-auto sm:text-left">all posts</p>
