@@ -16,7 +16,7 @@ const IndexPage = ({ abdn, edi }) => {
   }, [showEdi, abdn, edi]);
 
   return (
-    <div className="sm:h-screen min-h-screen font-sans flex-col flex justify-between">
+    <div className="min-h-screen font-sans flex-col flex justify-between">
       <Header title="el's cafes" description="cafes in edinburgh i luv." />
 
       <Title
