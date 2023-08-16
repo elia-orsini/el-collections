@@ -13,8 +13,8 @@ const IndexPage = () => {
         className="h-full"
         style={
           {
-            // backgroundImage: `url(/grid.svg)`,
-            // backgroundSize: `5%`,
+            backgroundImage: `url(/grid.svg)`,
+            backgroundSize: `5%`,
           }
         }
       >

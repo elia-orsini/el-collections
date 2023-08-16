@@ -69,9 +69,8 @@ const Coffee = ({ blogPosts }) => {
   return (
     <div className="h-screen min-h-screen font-sans flex-col flex">
       <Header
-        title="coffee"
-        description="everything i care to know about coffee."
-        img="https://i.pinimg.com/564x/76/70/a4/7670a43c9ee6405dd84f523307201558.jpg"
+        title="el's blog"
+        description="a collection of topics i find interesting."
       />
 
       <Title

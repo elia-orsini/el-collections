@@ -7,16 +7,17 @@ import "prismjs/themes/prism-tomorrow.css";
 import Title from "@components/Title";
 
 const BlogPost = ({ blockMap, blogPostInfo }) => {
-  console.log(blogPostInfo.bgImage[0].url);
   return (
     <div className="min-h-screen font-sans flex-col flex">
-      <Header title="blog post" description="..." />
+      <Header
+        title={blogPostInfo.title}
+        description="..."
+        img={blogPostInfo.bgImage[0].url}
+      />
 
       <Title leftSide={<span>{blogPostInfo.title}</span>} />
 
-      <div
-        className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star blur blur-lg"
-      >
+      <div className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star blur blur-lg">
         <div
           style={{
             backgroundImage: `url(${blogPostInfo.bgImage[0].url})`,
@@ -29,7 +30,9 @@ const BlogPost = ({ blockMap, blogPostInfo }) => {
         >
           <h1 className="mx-auto my-auto text-white text-6xl text-center leading-3">
             {blogPostInfo.title}
-          {blogPostInfo.inProgress && (<p className="text-4xl text-red-700">not available yet</p>)}
+            {blogPostInfo.inProgress && (
+              <p className="text-4xl text-red-700">not available yet</p>
+            )}
           </h1>
         </div>
 

@@ -8,7 +8,7 @@ export default function Book(props) {
           props.link ? "cursor-pointer" : "cursor-default"
         }`}
       >
-        <div className="bg-white">
+        <div className="bg-white hover:bg-gray-100">
           <div className="flex justify-between">
             <p className="lowercase line-clamp-1 px-2 pb-1">{props.title}</p>
 

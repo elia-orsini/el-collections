@@ -17,7 +17,7 @@ const IndexPage = ({ abdn, edi }) => {
 
   return (
     <div className="min-h-screen font-sans flex-col flex justify-between">
-      <Header title="el's cafes" description="cafes in edinburgh i luv." />
+      <Header title="el's fav cafes" description="cafes in edinburgh i luv." />
 
       <Title
         leftSide={
