@@ -93,13 +93,13 @@ const Coffee = ({ blogPosts }) => {
 
           <hr className="border-black mt-2" />
 
-          <div className="text-left mt-10">
+          <div className="text-left mt-10 w-max mx-auto">
             {blogPosts.map((blogPost, index) => (
               <Link key={blogPost.id} href={`/blog/${blogPost.id}`} passHref>
-                <div className="w-max mx-auto my-2">
-                  <p className="text-3xl cursor-pointer font-black tracking-tighter uppercase border border-black px-2">
+                <div className="w-max my-2 cursor-pointer">
+                  <p className="text-md sm:text-3xl font-black tracking-tighter uppercase border border-black px-2">
                     <span className="font-extrabold text-sm mr-1">
-                      {index + 1}
+                      {blogPosts.length - index}
                     </span>
                     {blogPost.title}
                   </p>
@@ -122,7 +122,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      blogPosts: data,
+      blogPosts: data.reverse(),
     },
     revalidate: 10, // revalidate every 10 seconds
   };
