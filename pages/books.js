@@ -62,10 +62,10 @@ const IndexPage = ({ books }) => {
               <Book
                 key={book.id}
                 id={book.id}
-                title={book.properties.TITLE.title[0].text.content}
-                author={book.properties.AUTHOR.rich_text[0].text.content}
-                dateFinished={book.properties.DATE_READ.date.start}
-                link={book.properties.LINK.checkbox}
+                title={book.TITLE}
+                author={book.AUTHOR}
+                dateFinished={book.DATE_READ}
+                link={book.LINK}
               />
             );
           })}
@@ -78,17 +78,14 @@ const IndexPage = ({ books }) => {
 };
 
 export const getStaticProps = async () => {
-  const notion = new Client({
-    auth: process.env.SECRET,
-  });
 
-  const data = await notion.databases.query({
-    database_id: process.env.BOOKS,
-  });
+  const data = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS}`
+  ).then((res) => res.json());
 
   return {
     props: {
-      books: data.results,
+      books: data,
     },
     revalidate: 30,
   };
