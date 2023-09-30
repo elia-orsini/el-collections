@@ -7,6 +7,7 @@ import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Book from "@components/Book";
 import Title from "@components/Title";
+import FunkyText from "@components/FunkyText";
 
 const IndexPage = ({ books }) => {
   const oneDay = 24 * 60 * 60 * 1000;
@@ -33,14 +34,14 @@ const IndexPage = ({ books }) => {
         <Title leftSide={<></>} />
 
         <div className="h-full flex flex-col justify-start">
-          <div className="text-center text-xs mt-8 w-72 mx-auto border border-black font-mono">
-            goal is to read <b>{booksToRead}</b> books this year. <br />
+          <div className="text-center text-xs mt-8 w-72 mx-auto border-dashed border border-black font-mono">
+            goal is to read <b>{booksToRead}</b> <FunkyText text="books" />{" "} this year. <br />
           </div>
 
           <div className="mx-auto mt-4 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
             <div>
               <p className="text-3xl font-black">{booksRead}</p>
-              <p className="text-xs -mt-1">books read this year</p>
+              <p className="text-xs -mt-1"><FunkyText text="books" />{" "} read this year</p>
             </div>
 
             <div className="">

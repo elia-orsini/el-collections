@@ -6,6 +6,7 @@ import Footer from "@components/Footer";
 import Cafe from "@components/Cafe";
 import Title from "@components/Title";
 import RatingsExplanation from "@components/RatingsExplanation";
+import FunkyText from "@components/FunkyText";
 
 const IndexPage = ({ abdn, edi }) => {
   const [showEdi, setShowEdi] = useState(true);
@@ -23,7 +24,7 @@ const IndexPage = ({ abdn, edi }) => {
         <Title
           leftSide={
             <span>
-              <span className="font-bold">{toShow.length}</span> cafes total
+              <span className="font-bold">{toShow.length}</span> <FunkyText text="cafes" />{" "}<FunkyText text="total" />
             </span>
           }
         />

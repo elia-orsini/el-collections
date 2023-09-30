@@ -33,10 +33,7 @@ export default function Title({ leftSide }) {
 
       <div className="mx-auto py-2 px-10 border-dashed border-r border-l border-black flex-1 text-center">
         <h1 className="text-lg font-light lowercase tracking-tight text-center">
-          elia&apos;s
-          {' '}
-          <FunkyText text="personal" />
-          {' '}
+          elia&apos;s <FunkyText text="personal" />{" "}
           <FunkyText text="database" />
         </h1>
       </div>
@@ -48,7 +45,9 @@ export default function Title({ leftSide }) {
               leftSide
             ) : (
               <span>
-                <span className="font-bold">3</span> active collections
+                <span className="font-bold">3</span>{" "}
+                <FunkyText text="active" />{" "}
+                <span>collections</span>
               </span>
             )}
           </h3>

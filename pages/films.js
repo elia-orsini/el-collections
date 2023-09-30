@@ -7,6 +7,7 @@ import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Film from "@components/Film";
 import Title from "@components/Title";
+import FunkyText from "@components/FunkyText";
 
 function checkWatched(item) {
   const itemStatus = item.properties.STATUS.select;
@@ -25,12 +26,13 @@ const IndexPage = ({ items }) => {
       <Title
         leftSide={
           <span>
-            <span className="font-bold">{items.length}</span> films total
+            <span className="font-bold">{items.length}</span>{" "}
+            <FunkyText text="films" /> <FunkyText text="total" />
             &nbsp;&nbsp;|&nbsp;&nbsp;{" "}
             <span className="font-bold">
               {items.filter(checkWatched).length}
             </span>{" "}
-            watched
+            <FunkyText text="watched" />
           </span>
         }
       />
@@ -38,11 +40,22 @@ const IndexPage = ({ items }) => {
       <div className="flex-1 mx-auto my-auto">
         <button
           className={`mt-8 block border text-xs py-1 w-72 mx-auto cursor-pointer ${
-            switchEvents ? "bg-black text-white border-black" : "text-black border-black"
+            switchEvents
+              ? "bg-black text-white border-black"
+              : "text-black border-black"
           }`}
           onClick={() => setSwitch(!switchEvents)}
         >
-          {switchEvents ? "show all" : "show only watched"}
+          {switchEvents ? (
+            <p>
+              <FunkyText text="show" /> all
+            </p>
+          ) : (
+            <p>
+              <FunkyText text="show" /> <FunkyText text="only" />{" "}
+              <FunkyText text="watched" />
+            </p>
+          )}
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 my-8">

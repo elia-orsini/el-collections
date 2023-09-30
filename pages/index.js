@@ -56,7 +56,7 @@ const IndexPage = () => {
       >
         {explain ? (
           <p>
-            wlel mabye it sholud&apos;t ? typoglycemia is a priincple cailimng
+            wlel mabye it&apos;s not ? typoglycemia is a priincple cailimng
             taht reaedrs can uenadrstnd wrdos eevn wehn the caharcetrs in the
             mdidle of a wrod are rndmaloy re-orederd like tihs.
           </p>
