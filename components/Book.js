@@ -4,13 +4,13 @@ export default function Book(props) {
   return (
     <a href={props.link ? `book/${props.id}` : "#"}>
       <div
-        className={`mx-auto border h-ful border-black font-semibold w-72 text-left ${
+        className={`mx-auto border h-full border-black font-semibold w-72 text-left ${
           props.link ? "cursor-pointer" : "cursor-default"
         }`}
       >
-        <div className="bg-white hover:bg-gray-100">
+        <div className="hover:bg-gray-100">
           <div className="flex justify-between">
-            <p className="lowercase line-clamp-1 px-2 pb-1">{props.title}</p>
+            <p className="lowercase line-clamp-1 px-2 pb-1 h-max sm:h-12">{props.title}</p>
 
             {props.link && (
               <a

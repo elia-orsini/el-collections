@@ -16,8 +16,5 @@ module.exports = {
       "6xl": "4rem",
       "7xl": "5rem",
     },
-    fontFamily: {
-      custom: ["sans-serif"],
-    },
   },
 };

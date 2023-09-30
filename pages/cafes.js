@@ -19,50 +19,51 @@ const IndexPage = ({ abdn, edi }) => {
     <div className="min-h-screen font-sans flex-col flex justify-between">
       <Header title="el's fav cafes" description="cafes in edinburgh i luv." />
 
-      <Title
-        leftSide={
-          <span>
-            only <span className="font-bold">{toShow.length}</span> cafes total
-          </span>
-        }
-      />
+      <div className="w-full">
+        <Title
+          leftSide={
+            <span>
+              <span className="font-bold">{toShow.length}</span> cafes total
+            </span>
+          }
+        />
 
-      <div className="h-full mx-auto flex flex-col justify-start">
-        <RatingsExplanation />
+        <div className="h-full mx-auto w-max flex flex-col justify-start">
+          <RatingsExplanation />
 
-        <button
-          className="flex mx-auto my-6 bg-black text-sm"
-          onClick={() => setShowEdi(!showEdi)}
-        >
-          <span
-            className={`${
-              showEdi ? "text-white" : "bg-white"
-            } border border-black px-6 py-1`}
+          <button
+            className="flex mx-auto my-6 bg-black text-sm"
+            onClick={() => setShowEdi(!showEdi)}
           >
-            EDI
-          </span>
-          <span
-            className={`${
-              !showEdi ? "text-white" : "bg-white"
-            } border border-black px-6 py-1`}
-          >
-            ABDN
-          </span>
-        </button>
+            <span
+              className={`${showEdi ? "text-white" : "bg-white"
+                } border border-black px-6 py-1`}
+            >
+              EDI
+            </span>
+            <span
+              className={`${!showEdi ? "text-white" : "bg-white"
+                } border border-black px-6 py-1`}
+            >
+              ABDN
+            </span>
+          </button>
 
-        <div className="p-2 sm:p-4 border border-black bg-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {toShow.map((obj) => {
-            return (
-              <Cafe
-                key={obj.id}
-                title={obj.properties.NAME.title[0].plain_text}
-                rating={obj.properties.RATING.number}
-                address={obj.properties.ADDRESS.rich_text[0].plain_text}
-                link={obj.properties.URL.url}
-              />
-            );
-          })}
+          <div className="p-2 sm:p-4 border border-black bg-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {toShow.map((obj) => {
+              return (
+                <Cafe
+                  key={obj.id}
+                  title={obj.properties.NAME.title[0].plain_text}
+                  rating={obj.properties.RATING.number}
+                  address={obj.properties.ADDRESS.rich_text[0].plain_text}
+                  link={obj.properties.URL.url}
+                />
+              );
+            })}
+          </div>
         </div>
+
       </div>
 
       <Footer />

@@ -8,7 +8,7 @@ export default function RatingsExplanation() {
               className="w-14 mx-auto block inline mr-2"
               src={`1starsb.png`}
             />{" "}
-            = ok
+            = nice one
           </span>
           <span className="block -mt-2">
             <img
@@ -16,7 +16,7 @@ export default function RatingsExplanation() {
               className="w-14 mx-auto block inline mr-2"
               src={`2starsb.png`}
             />{" "}
-            = good
+            = oh that&apos;good
           </span>
           <span className="block -mt-2">
             <img
@@ -24,7 +24,7 @@ export default function RatingsExplanation() {
               className="w-14 mx-auto block inline mr-2"
               src={`3starsb.png`}
             />{" "}
-            = great
+            = so great
           </span>
           <span className="block -mt-2">
             <img
@@ -32,7 +32,7 @@ export default function RatingsExplanation() {
               className="w-14 mx-auto block inline mr-2"
               src={`4starsb.png`}
             />{" "}
-            = amazing
+            = one of a kind
           </span>
           <span className="block -mt-2">
             <img
@@ -40,7 +40,7 @@ export default function RatingsExplanation() {
               className="w-14 mx-auto block inline mr-2"
               src={`5starsb.png`}
             />{" "}
-            = the best
+            = legendary
           </span>
         </div>
       </div>

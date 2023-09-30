@@ -1,11 +1,12 @@
 import Link from "next/link";
+import FunkyText from "./FunkyText";
 
 export default function Title({ leftSide }) {
   return (
-    <div className="w-full bg-white flex border-t border-b border-black grid lg:grid-cols-3 z-10">
+    <div className="w-full font-mono bg-white flex border-t border-dashed border-b border-black grid lg:grid-cols-3 z-10">
       <div className="flex w-max h-full border-r border-black hidden lg:flex cursor-pointer">
         <Link href={"/"} passHref>
-          <div className="mx-5 my-auto w-10">
+          <div className="mx-5 my-auto w-5">
             <svg
               id="Layer_1"
               data-name="Layer 1"
@@ -30,13 +31,14 @@ export default function Title({ leftSide }) {
         </Link>
       </div>
 
-      <div className="mx-auto py-3 w-72 border-r border-l border-black flex-1 text-center">
-        <h1 className="text-xl font-light lowercase tracking-tight text-center">
-          el&apos;s collections
+      <div className="mx-auto py-2 px-10 border-dashed border-r border-l border-black flex-1 text-center">
+        <h1 className="text-lg font-light lowercase tracking-tight text-center">
+          elia&apos;s
+          {' '}
+          <FunkyText text="personal" />
+          {' '}
+          <FunkyText text="database" />
         </h1>
-        <h3 className="text-xs uppercase font-light tracking-tighter">
-          collecting cool stuff
-        </h3>
       </div>
 
       <div className="flex h-full justify-self-end hidden sm:block">

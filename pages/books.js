@@ -29,47 +29,50 @@ const IndexPage = ({ books }) => {
         description="books i have read the past year."
       />
 
-      <Title leftSide={<></>} />
+      <div className="w-full">
+        <Title leftSide={<></>} />
 
-      <div className="h-full flex flex-col justify-start">
-        <div className="text-center text-xs mt-8 w-72 mx-auto border border-black">
-          the goal is to read <b>{booksToRead}</b> books this year. <br />
-        </div>
-
-        <div className="mx-auto mt-8 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
-          <div>
-            <p className="text-3xl font-black">{booksRead}</p>
-            <p className="text-xs -mt-1">books read</p>
+        <div className="h-full flex flex-col justify-start">
+          <div className="text-center text-xs mt-8 w-72 mx-auto border border-black font-mono">
+            goal is to read <b>{booksToRead}</b> books this year. <br />
           </div>
 
-          <div className="">
-            <p className="text-3xl font-black">{booksADay}</p>
-            <p className="text-xs -mt-1">days to read a book</p>
+          <div className="mx-auto mt-4 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
+            <div>
+              <p className="text-3xl font-black">{booksRead}</p>
+              <p className="text-xs -mt-1">books read this year</p>
+            </div>
+
+            <div className="">
+              <p className="text-3xl font-black">{booksADay}</p>
+              <p className="text-xs -mt-1">days to read a book</p>
+            </div>
+
+            <div>
+              <p className="text-3xl font-black">{passedDays}</p>
+              <p className="text-xs -mt-1">
+                days passed
+                <br />({passedWeeks} weeks)
+              </p>
+            </div>
           </div>
 
-          <div>
-            <p className="text-3xl font-black">{passedDays}</p>
-            <p className="text-xs -mt-1">
-              days passed
-              <br />({passedWeeks} weeks)
-            </p>
+          <div className="text-center mx-auto my-auto mt-10 mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+            {books.map((book) => {
+              return (
+                <Book
+                  key={book.id}
+                  id={book.id}
+                  title={book.TITLE}
+                  author={book.AUTHOR}
+                  dateFinished={book.DATE_READ}
+                  link={book.LINK}
+                />
+              );
+            })}
           </div>
         </div>
 
-        <div className="text-center mx-auto my-auto mt-6 mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {books.map((book) => {
-            return (
-              <Book
-                key={book.id}
-                id={book.id}
-                title={book.TITLE}
-                author={book.AUTHOR}
-                dateFinished={book.DATE_READ}
-                link={book.LINK}
-              />
-            );
-          })}
-        </div>
       </div>
 
       <Footer />
