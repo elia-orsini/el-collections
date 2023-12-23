@@ -13,7 +13,7 @@ const BlogPost = ({ blockMap }) => {
 
       <Title leftSide={<span>title</span>} />
 
-      <div className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star blur blur-lg">
+      <div className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star">
         <div>
           <NotionRenderer blockMap={blockMap} />
         </div>

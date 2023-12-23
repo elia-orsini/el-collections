@@ -19,7 +19,7 @@ const IndexPage = ({ books }) => {
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
   const passedWeeks = Math.floor(passedDays / 7);
 
-  const booksToRead = 30;
+  const booksToRead = 20;
   const booksRead = books.length;
   const booksADay = (remainingDays / (booksToRead - booksRead)).toFixed(2);
 
@@ -35,13 +35,16 @@ const IndexPage = ({ books }) => {
 
         <div className="h-full flex flex-col justify-start">
           <div className="text-center text-xs mt-8 w-72 mx-auto border-dashed border border-black font-mono">
-            goal is to read <b>{booksToRead}</b> <FunkyText text="books" />{" "} this year. <br />
+            goal is to read <b>{booksToRead}</b> <FunkyText text="books" /> this
+            year. <br />
           </div>
 
           <div className="mx-auto mt-4 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
             <div>
               <p className="text-3xl font-black">{booksRead}</p>
-              <p className="text-xs -mt-1"><FunkyText text="books" />{" "} read this year</p>
+              <p className="text-xs -mt-1">
+                <FunkyText text="books" /> read this year
+              </p>
             </div>
 
             <div className="">
@@ -73,7 +76,6 @@ const IndexPage = ({ books }) => {
             })}
           </div>
         </div>
-
       </div>
 
       <Footer />
@@ -82,7 +84,6 @@ const IndexPage = ({ books }) => {
 };
 
 export const getStaticProps = async () => {
-
   const data = await fetch(
     `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS}`
   ).then((res) => res.json());
