@@ -1,27 +1,38 @@
 import "tailwindcss/tailwind.css";
-import React from "react";
-import { Client } from "@notionhq/client";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Book from "@components/Book";
 import Title from "@components/Title";
-import FunkyText from "@components/FunkyText";
+import SwitchButton from "@components/common/SwitchButton";
+import BooksStats from "@components/books/BooksStats";
 
-const IndexPage = ({ books }) => {
+const IndexPage = ({ books2023, books2024 }) => {
   const oneDay = 24 * 60 * 60 * 1000;
-  const lastDay = new Date(2024, 0, 1);
-  const firstDay = new Date(2023, 0, 1);
+  const lastDay = new Date(2025, 0, 1);
+  const firstDay = new Date(2024, 0, 1);
   const secondDate = new Date();
+
+  const [thisYear, setThisYear] = useState(true);
+  const [currentYearData, setCurrentYearData] = useState([]);
+
+  useEffect(() => {
+    if (thisYear) setCurrentYearData(books2024);
+    else setCurrentYearData(books2023);
+  }, [thisYear]);
 
   const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
   const passedWeeks = Math.floor(passedDays / 7);
 
-  const booksToRead = 20;
-  const booksRead = books.length;
+  const booksToRead = 30;
+  const booksRead = currentYearData.length;
   const booksADay = (remainingDays / (booksToRead - booksRead)).toFixed(2);
+
+  useEffect(() => {
+    console.log(booksADay + " days to read a book");
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen justify-between">
@@ -33,36 +44,23 @@ const IndexPage = ({ books }) => {
       <div className="w-full">
         <Title leftSide={<></>} />
 
-        <div className="h-full flex flex-col justify-start">
-          <div className="text-center text-xs mt-8 w-72 mx-auto border-dashed border border-black font-mono">
-            goal is to read <b>{booksToRead}</b> <FunkyText text="books" /> this
-            year. <br />
-          </div>
+        <div className="h-full flex flex-col justify-start mt-4">
+          <BooksStats
+            thisYear={thisYear}
+            booksRead={booksRead}
+            booksToRead={booksToRead}
+            passedDays={passedDays}
+          />
 
-          <div className="mx-auto mt-4 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
-            <div>
-              <p className="text-3xl font-black">{booksRead}</p>
-              <p className="text-xs -mt-1">
-                <FunkyText text="books" /> read this year
-              </p>
-            </div>
-
-            <div className="">
-              <p className="text-3xl font-black">{booksADay}</p>
-              <p className="text-xs -mt-1">days to read a book</p>
-            </div>
-
-            <div>
-              <p className="text-3xl font-black">{passedDays}</p>
-              <p className="text-xs -mt-1">
-                days passed
-                <br />({passedWeeks} weeks)
-              </p>
-            </div>
-          </div>
+          <SwitchButton
+            setState={setThisYear}
+            state={thisYear}
+            stateOne="2023"
+            stateTwo="2024"
+          />
 
           <div className="text-center mx-auto my-auto mt-10 mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {books.map((book) => {
+            {currentYearData.map((book) => {
               return (
                 <Book
                   key={book.id}
@@ -84,13 +82,18 @@ const IndexPage = ({ books }) => {
 };
 
 export const getStaticProps = async () => {
-  const data = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS}`
+  const books23 = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS2023}`
+  ).then((res) => res.json());
+
+  const books24 = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS2024}`
   ).then((res) => res.json());
 
   return {
     props: {
-      books: data,
+      books2023: books23,
+      books2024: books24,
     },
     revalidate: 30,
   };
