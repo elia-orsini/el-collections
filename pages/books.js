@@ -24,9 +24,8 @@ const IndexPage = ({ books2023, books2024 }) => {
 
   const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
-  const passedWeeks = Math.floor(passedDays / 7);
 
-  const booksToRead = 30;
+  const booksToRead = 15;
   const booksRead = currentYearData.length;
   const booksADay = (remainingDays / (booksToRead - booksRead)).toFixed(2);
 
@@ -55,8 +54,8 @@ const IndexPage = ({ books2023, books2024 }) => {
           <SwitchButton
             setState={setThisYear}
             state={thisYear}
-            stateOne="2023"
-            stateTwo="2024"
+            stateOne="2024"
+            stateTwo="2023"
           />
 
           <div className="text-center mx-auto my-auto mt-10 mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
