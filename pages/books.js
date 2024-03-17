@@ -8,18 +8,29 @@ import Title from "@components/Title";
 import SwitchButton from "@components/common/SwitchButton";
 import BooksStats from "@components/books/BooksStats";
 
-const IndexPage = ({ books2023, books2024 }) => {
+const IndexPage = ({ books2022, books2023, books2024 }) => {
   const oneDay = 24 * 60 * 60 * 1000;
   const lastDay = new Date(2025, 0, 1);
   const firstDay = new Date(2024, 0, 1);
   const secondDate = new Date();
 
-  const [thisYear, setThisYear] = useState(true);
+  const [thisYear, setThisYear] = useState("2024");
   const [currentYearData, setCurrentYearData] = useState([]);
 
   useEffect(() => {
-    if (thisYear) setCurrentYearData(books2024);
-    else setCurrentYearData(books2023);
+    switch (thisYear) {
+      case "2024":
+        setCurrentYearData(books2024);
+        break;
+      case "2023":
+        setCurrentYearData(books2023);
+        break;
+      case "2022":
+        setCurrentYearData(books2022);
+        break;
+      default:
+        break;
+    }
   }, [thisYear]);
 
   const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
@@ -45,7 +56,7 @@ const IndexPage = ({ books2023, books2024 }) => {
 
         <div className="h-full flex flex-col justify-start mt-4">
           <BooksStats
-            thisYear={thisYear}
+            thisYear={thisYear === '2024'}
             booksRead={booksRead}
             booksToRead={booksToRead}
             passedDays={passedDays}
@@ -54,8 +65,7 @@ const IndexPage = ({ books2023, books2024 }) => {
           <SwitchButton
             setState={setThisYear}
             state={thisYear}
-            stateOne="2024"
-            stateTwo="2023"
+            states={["2024", "2023", "2022"]}
           />
 
           <div className="text-center mx-auto my-auto mt-10 mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -81,6 +91,10 @@ const IndexPage = ({ books2023, books2024 }) => {
 };
 
 export const getStaticProps = async () => {
+  const books22 = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS2022}`
+  ).then((res) => res.json());
+
   const books23 = await fetch(
     `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS2023}`
   ).then((res) => res.json());
@@ -91,6 +105,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
+      books2022: books22,
       books2023: books23,
       books2024: books24,
     },
