@@ -5,6 +5,7 @@ export default function SwitchButton({ setState, state, states }) {
       {states.map((currentState, i) => {
         return (
           <button
+            key={currentState}
             onClick={() => setState(currentState)}
             className={`${state === currentState ? "text-white" : "bg-white"} ${
               i > 0 && `border-l-0`
