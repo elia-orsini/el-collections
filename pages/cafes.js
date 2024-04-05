@@ -1,20 +1,34 @@
 import "tailwindcss/tailwind.css";
 import React, { useEffect, useState } from "react";
 import { Client } from "@notionhq/client";
+
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Cafe from "@components/Cafe";
 import Title from "@components/Title";
+import SwitchButton from "@components/common/SwitchButton";
 import RatingsExplanation from "@components/RatingsExplanation";
 import FunkyText from "@components/FunkyText";
 
-const IndexPage = ({ abdn, edi }) => {
-  const [showEdi, setShowEdi] = useState(true);
-  const [toShow, setToShow] = useState(edi);
+const IndexPage = ({ gla, abdn, edi }) => {
+  const [city, setCity] = useState("GLA");
+  const [toShow, setToShow] = useState(gla);
 
   useEffect(() => {
-    showEdi ? setToShow(edi) : setToShow(abdn);
-  }, [showEdi, abdn, edi]);
+    switch (city) {
+      case "GLA":
+        setToShow(gla);
+        break;
+      case "EDI":
+        setToShow(edi);
+        break;
+      case "ABD":
+        setToShow(abdn);
+        break;
+      default:
+        break;
+    }
+  }, [city]);
 
   return (
     <div className="min-h-screen font-sans flex-col flex justify-between">
@@ -24,7 +38,8 @@ const IndexPage = ({ abdn, edi }) => {
         <Title
           leftSide={
             <span>
-              <span className="font-bold">{toShow.length}</span> <FunkyText text="cafes" />{" "}<FunkyText text="total" />
+              <span className="font-bold">{toShow.length}</span>{" "}
+              <FunkyText text="cafes" /> <FunkyText text="total" />
             </span>
           }
         />
@@ -32,23 +47,13 @@ const IndexPage = ({ abdn, edi }) => {
         <div className="h-full mx-auto w-max flex flex-col justify-start">
           <RatingsExplanation />
 
-          <button
-            className="flex mx-auto my-6 bg-black text-sm"
-            onClick={() => setShowEdi(!showEdi)}
-          >
-            <span
-              className={`${showEdi ? "text-white" : "bg-white"
-                } border border-black px-6 py-1`}
-            >
-              EDI
-            </span>
-            <span
-              className={`${!showEdi ? "text-white" : "bg-white"
-                } border border-black px-6 py-1`}
-            >
-              ABDN
-            </span>
-          </button>
+          <div className="flex my-6">
+            <SwitchButton
+              setState={setCity}
+              state={city}
+              states={["GLA", "EDI", "ABD"]}
+            />
+          </div>
 
           <div className="p-2 sm:p-4 border border-black bg-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {toShow.map((obj) => {
@@ -64,7 +69,6 @@ const IndexPage = ({ abdn, edi }) => {
             })}
           </div>
         </div>
-
       </div>
 
       <Footer />
@@ -85,8 +89,13 @@ export const getStaticProps = async () => {
     database_id: process.env.EDICAFES,
   });
 
+  const glaData = await notion.databases.query({
+    database_id: process.env.GLACAFES,
+  });
+
   return {
     props: {
+      gla: glaData.results,
       abdn: abdnData.results,
       edi: ediData.results,
     },
