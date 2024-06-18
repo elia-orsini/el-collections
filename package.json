@@ -19,6 +19,7 @@
     "@notionhq/client": "1.0.4",
     "@zeit/next-mdx": "^1.2.0",
     "gray-matter": "^4.0.3",
+    "gsap": "^3.12.5",
     "next": "12.2.4",
     "prismjs": "^1.29.0",
     "react": "17.0.2",

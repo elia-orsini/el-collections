@@ -30,6 +30,8 @@ const IndexPage = ({ gla, abdn, edi }) => {
     }
   }, [city]);
 
+  console.log(toShow);
+
   return (
     <div className="min-h-screen font-sans flex-col flex justify-between">
       <Header title="el's fav cafes" description="cafes in edinburgh i luv." />
@@ -64,6 +66,7 @@ const IndexPage = ({ gla, abdn, edi }) => {
                   rating={obj.properties.RATING.number}
                   address={obj.properties.ADDRESS.rich_text[0].plain_text}
                   link={obj.properties.URL.url}
+                  roasters={obj.properties.ROASTERS ? obj.properties.ROASTERS.multi_select : []}
                 />
               );
             })}

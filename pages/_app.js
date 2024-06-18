@@ -6,12 +6,9 @@ function MyApp({ Component, pageProps }) {
     <Layout>
       <Head>
         <title>el&apos;s collections</title>
-        <meta
-          name="Description"
-          content="elia's collections"
-        />
+        <meta name="Description" content="elia's collections" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link href="/fonts/style.css" rel="stylesheet"/>
+        <link href="/fonts/style.css" rel="stylesheet" />
       </Head>
 
       <Component {...pageProps} />

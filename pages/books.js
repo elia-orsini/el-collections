@@ -56,19 +56,21 @@ const IndexPage = ({ books2022, books2023, books2024 }) => {
 
         <div className="h-full flex flex-col justify-start mt-4">
           <BooksStats
-            thisYear={thisYear === '2024'}
+            thisYear={thisYear === "2024"}
             booksRead={booksRead}
             booksToRead={booksToRead}
             passedDays={passedDays}
           />
 
-          <SwitchButton
-            setState={setThisYear}
-            state={thisYear}
-            states={["2024", "2023", "2022"]}
-          />
+          <div className="flex my-6">
+            <SwitchButton
+              setState={setThisYear}
+              state={thisYear}
+              states={["2024", "2023", "2022"]}
+            />
+          </div>
 
-          <div className="text-center mx-auto my-auto mt-10 mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div className="text-center mx-auto my-auto mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
             {currentYearData.map((book) => {
               return (
                 <Book

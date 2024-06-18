@@ -1,4 +1,34 @@
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap"
+
 export default function Cafe(props) {
+  const [toScroll, setToScroll] = useState(false);
+
+  const first = useRef();
+
+  useEffect(() => {
+    const element = document.getElementById(
+      `scrollingContainer-${props.title}`
+    );
+
+    if (element.scrollWidth > element.clientWidth) {
+      setToScroll(true);
+      requestAnimationFrame(animation)
+    }
+  }, []);
+
+  let translation = 0
+  let animationSpeed = 0.02
+
+  const animation = () => {
+    if (translation < -50) {
+      translation = 0
+    }
+    gsap.set(first.current, {translateX: `${translation}%`})
+    translation -= animationSpeed
+    requestAnimationFrame(animation)
+  }
+
   return (
     <div
       className={`mx-auto border border-black px-2 w-72 ${
@@ -61,6 +91,41 @@ export default function Cafe(props) {
             </svg>
           </a>
         )}
+      </div>
+
+      <hr
+        className={`my-0 ${
+          props.rating === -1 ? "border-white" : "border-black"
+        }`}
+      />
+
+      <div
+        id={`scrollingContainer-${props.title}`}
+        className="flex overflow-hidden w-full select-none"
+      >
+        <div
+          ref={first}
+          className={`flex py-1 gap-x-1 w-max`}
+        >
+          {props.roasters.length > 0 &&
+            props.roasters.map((roaster, i) => {
+              return (
+                <p key={`roaster_A_${i}`} className="px-1 bg-black text-white text-xs w-max whitespace-nowrap">
+                  {roaster.name}
+                </p>
+              );
+            })}
+
+          {toScroll &&
+            props.roasters.length > 0 &&
+            props.roasters.map((roaster, i) => {
+              return (
+                <p key={`roaster_B_${i}`} className="px-1 bg-black text-white text-xs w-max whitespace-nowrap">
+                  {roaster.name}
+                </p>
+              );
+            })}
+        </div>
       </div>
     </div>
   );
