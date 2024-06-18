@@ -8,7 +8,7 @@ export default function RatingsExplanation() {
             className="w-14 mx-auto block inline mr-2"
             src={`1starsb.png`}
           />{" "}
-          = nice one
+          = ok
         </span>
         <span className="block -mt-2">
           <img

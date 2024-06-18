@@ -10,9 +10,11 @@ import SwitchButton from "@components/common/SwitchButton";
 import RatingsExplanation from "@components/RatingsExplanation";
 import FunkyText from "@components/FunkyText";
 
-const IndexPage = ({ gla, abdn, edi }) => {
+const IndexPage = ({ gla, abdn, edi, roasters }) => {
   const [city, setCity] = useState("GLA");
   const [toShow, setToShow] = useState(gla);
+
+  console.log(roasters);
 
   useEffect(() => {
     switch (city) {
@@ -29,8 +31,6 @@ const IndexPage = ({ gla, abdn, edi }) => {
         break;
     }
   }, [city]);
-
-  console.log(toShow);
 
   return (
     <div className="min-h-screen font-sans flex-col flex justify-between">
@@ -66,7 +66,12 @@ const IndexPage = ({ gla, abdn, edi }) => {
                   rating={obj.properties.RATING.number}
                   address={obj.properties.ADDRESS.rich_text[0].plain_text}
                   link={obj.properties.URL.url}
-                  roasters={obj.properties.ROASTERS ? obj.properties.ROASTERS.multi_select : []}
+                  roasters={
+                    obj.properties.ROASTERS
+                      ? obj.properties.ROASTERS.relation
+                      : []
+                  }
+                  allRoasters={roasters}
                 />
               );
             })}
@@ -96,11 +101,16 @@ export const getStaticProps = async () => {
     database_id: process.env.GLACAFES,
   });
 
+  const roasters = await notion.databases.query({
+    database_id: process.env.ROASTERS,
+  });
+
   return {
     props: {
       gla: glaData.results,
       abdn: abdnData.results,
       edi: ediData.results,
+      roasters: roasters.results,
     },
     revalidate: 30,
   };

@@ -6,7 +6,6 @@ import Header from "@components/Header";
 import Title from "@components/Title";
 
 const IndexPage = ({ quotes }) => {
-  console.log(quotes);
   return (
     <div className="flex flex-col min-h-screen justify-between">
       <Header

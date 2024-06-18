@@ -1,5 +1,4 @@
 export default function SwitchButton({ setState, state, states }) {
-  console.log(states);
   return (
     <div className="flex mx-auto bg-black text-sm">
       {states.map((currentState, i) => {

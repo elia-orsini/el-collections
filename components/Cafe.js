@@ -1,8 +1,22 @@
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap"
+import gsap from "gsap";
+
+function getRoasterNameById(id, allRoasters) {
+  const page = allRoasters.find((item) => item.id === id);
+  if (page) {
+    return page.properties.Name.title[0].plain_text;
+  }
+  return null;
+}
 
 export default function Cafe(props) {
   const [toScroll, setToScroll] = useState(false);
+
+  const roasters =
+    props.roasters &&
+    props.roasters.map((roaster) => {
+      return getRoasterNameById(roaster.id, props.allRoasters);
+    });
 
   const first = useRef();
 
@@ -13,21 +27,21 @@ export default function Cafe(props) {
 
     if (element.scrollWidth > element.clientWidth) {
       setToScroll(true);
-      requestAnimationFrame(animation)
+      requestAnimationFrame(animation);
     }
   }, []);
 
-  let translation = 0
-  let animationSpeed = 0.02
+  let translation = 0;
+  let animationSpeed = 0.02;
 
   const animation = () => {
     if (translation < -50) {
-      translation = 0
+      translation = 0;
     }
-    gsap.set(first.current, {translateX: `${translation}%`})
-    translation -= animationSpeed
-    requestAnimationFrame(animation)
-  }
+    gsap.set(first.current, { translateX: `${translation}%` });
+    translation -= animationSpeed;
+    requestAnimationFrame(animation);
+  };
 
   return (
     <div
@@ -103,25 +117,28 @@ export default function Cafe(props) {
         id={`scrollingContainer-${props.title}`}
         className="flex overflow-hidden w-full select-none"
       >
-        <div
-          ref={first}
-          className={`flex py-1 gap-x-1 w-max`}
-        >
-          {props.roasters.length > 0 &&
-            props.roasters.map((roaster, i) => {
+        <div ref={first} className={`flex py-1 gap-x-1 w-max`}>
+          {roasters &&
+            roasters.map((roaster, i) => {
               return (
-                <p key={`roaster_A_${i}`} className="px-1 bg-black text-white text-xs w-max whitespace-nowrap">
-                  {roaster.name}
+                <p
+                  key={`roaster_A_${i}`}
+                  className="px-1 bg-black text-white text-xs w-max whitespace-nowrap"
+                >
+                  {roaster}
                 </p>
               );
             })}
 
           {toScroll &&
-            props.roasters.length > 0 &&
-            props.roasters.map((roaster, i) => {
+            roasters.length > 0 &&
+            roasters.map((roaster, i) => {
               return (
-                <p key={`roaster_B_${i}`} className="px-1 bg-black text-white text-xs w-max whitespace-nowrap">
-                  {roaster.name}
+                <p
+                  key={`roaster_B_${i}`}
+                  className="px-1 bg-black text-white text-xs w-max whitespace-nowrap"
+                >
+                  {roaster}
                 </p>
               );
             })}
