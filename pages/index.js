@@ -4,17 +4,21 @@ import Link from "next/link";
 import Footer from "@components/Footer";
 import Title from "@components/Title";
 import FunkyText from "@components/FunkyText";
+import Header from "@components/Header";
 
 const IndexPage = () => {
   const [explain, setExplain] = useState(false);
 
   return (
     <div className="h-screen min-h-screen flex-col flex justify-between">
+      <Header
+        title="elia's personal database"
+        description="elia's personal database collecting good films, amazing cafes and books I read."
+      />
+
       <Title />
 
-      <div
-        className="mx-auto p-2 lowercase text-sm w-full sm:w-2/5 cursor-pointer text-center border-dashed border-b border-r border-l border-black font-mono"
-      >
+      <div className="mx-auto p-2 lowercase text-sm w-full sm:w-2/5 cursor-pointer text-center border-dashed border-b border-r border-l border-black font-mono">
         <p>
           jsut a smplie wbeiste clloeictng tihngs i read and wtach and cffoee i
           dirnk ? wrnanig: vrey opinntioaed.
@@ -56,9 +60,9 @@ const IndexPage = () => {
       >
         {explain ? (
           <p>
-            wlel mabye it&apos;s not ? typoglycemia is a priincple cailimng
-            taht reaedrs can uenadrstnd wrdos eevn wehn the caharcetrs in the
-            mdidle of a wrod are rndmaloy re-orederd like tihs.
+            wlel mabye it&apos;s not ? typoglycemia is a priincple cailimng taht
+            reaedrs can uenadrstnd wrdos eevn wehn the caharcetrs in the mdidle
+            of a wrod are rndmaloy re-orederd like tihs.
           </p>
         ) : (
           <p>why is this so confusing ?</p>

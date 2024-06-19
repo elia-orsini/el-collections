@@ -14,8 +14,6 @@ const IndexPage = ({ gla, abdn, edi, roasters }) => {
   const [city, setCity] = useState("GLA");
   const [toShow, setToShow] = useState(gla);
 
-  console.log(roasters);
-
   useEffect(() => {
     switch (city) {
       case "GLA":
@@ -34,7 +32,10 @@ const IndexPage = ({ gla, abdn, edi, roasters }) => {
 
   return (
     <div className="min-h-screen font-sans flex-col flex justify-between">
-      <Header title="el's fav cafes" description="cafes in edinburgh i luv." />
+      <Header
+        title="cafes database"
+        description="Database of Cafes in Scotland (Glasgow, Edinburgh and Aberdeen)."
+      />
 
       <div className="w-full">
         <Title

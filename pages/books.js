@@ -48,7 +48,7 @@ const IndexPage = ({ books2022, books2023, books2024 }) => {
     <div className="flex flex-col min-h-screen justify-between">
       <Header
         title="el's books"
-        description="books i have read the past year."
+        description="List of books i have read in the past years."
       />
 
       <div className="w-full">

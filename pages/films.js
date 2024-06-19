@@ -20,7 +20,7 @@ const IndexPage = ({ items }) => {
 
   return (
     <>
-      <Header title="el's films" description="a review of indie films." />
+      <Header title="el's fav films" description="A collection of indie films I watch." />
 
       <Title
         leftSide={
