@@ -7,8 +7,6 @@ import FunkyText from "@components/FunkyText";
 import Header from "@components/Header";
 
 const IndexPage = () => {
-  const [explain, setExplain] = useState(false);
-
   return (
     <div className="h-screen min-h-screen flex-col flex justify-between">
       <Header
@@ -18,55 +16,36 @@ const IndexPage = () => {
 
       <Title />
 
-      <div className="mx-auto p-2 lowercase text-sm w-full sm:w-2/5 cursor-pointer text-center border-dashed border-b border-r border-l border-black font-mono">
+      <div className="mx-auto p-2 text-lg w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b border-r border-l border-black ">
         <p>
-          jsut a smplie wbeiste clloeictng tihngs i read and wtach and cffoee i
-          dirnk ? wrnanig: vrey opinntioaed.
+          Just a simple website collecting books I read and film I watch and
+          coffee I drink.
         </p>
+        <span className="text-xs bg-black text-white w-max px-1">
+          WARNING: very opinionated
+        </span>
       </div>
-      <div className="h-full flex">
-        <div className="flex bg-white my-auto mx-auto w-full sm:w-2/5 h-full border-dashed border-r border-l border-black font-mono">
-          <div className="w-full my-auto text-center flex-1">
-            <div className="flex my-10">
-              <Link href="/films" passHref>
-                <p className="mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
-                  <FunkyText text="films" />
-                </p>
-              </Link>
-            </div>
 
-            <div className="flex border-black my-10">
-              <Link href="/cafes" passHref>
-                <p className="mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
-                  <FunkyText text="cafes" />
-                </p>
-              </Link>
-            </div>
+      <div style={{ fontFamily: "Lyyra" }} className="h-full flex">
+        <div className="flex flex-col sm:flex-row my-auto mx-auto w-full sm:w-4/5 md:w-3/5 h-full border-dashed border-r border-l border-black">
+          <Link href="/films" passHref>
+            <p className="mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
+              Films
+            </p>
+          </Link>
 
-            <div className="flex border-black my-10">
-              <Link href="/books" passHref>
-                <p className="mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
-                  <FunkyText text="books" />
-                </p>
-              </Link>
-            </div>
-          </div>
+          <Link href="/cafes" passHref>
+            <p className="mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
+              Cafes
+            </p>
+          </Link>
+
+          <Link href="/books" passHref>
+            <p className="mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
+              Books
+            </p>
+          </Link>
         </div>
-      </div>
-
-      <div
-        className="mx-auto p-2 lowercase text-sm w-full sm:w-2/5 cursor-pointer text-center border-dashed border-t border-r border-l border-black font-mono"
-        onClick={() => setExplain(!explain)}
-      >
-        {explain ? (
-          <p>
-            wlel mabye it&apos;s not ? typoglycemia is a priincple cailimng taht
-            reaedrs can uenadrstnd wrdos eevn wehn the caharcetrs in the mdidle
-            of a wrod are rndmaloy re-orederd like tihs.
-          </p>
-        ) : (
-          <p>why is this so confusing ?</p>
-        )}
       </div>
 
       <Footer />

@@ -3,8 +3,8 @@ import FunkyText from "./FunkyText";
 
 export default function Title({ leftSide }) {
   return (
-    <div className="w-full font-mono bg-white flex border-t border-dashed border-b border-black grid lg:grid-cols-3 z-10">
-      <div className="flex w-max h-full border-r border-black hidden lg:flex cursor-pointer">
+    <div className="w-full bg-white flex border-dashed border-b border-black grid lg:grid-cols-3 z-10">
+      <div className="flex w-max h-full border-r border-dashed border-black hidden lg:flex cursor-pointer">
         <Link href={"/"} passHref>
           <div className="mx-5 my-auto w-5">
             <svg
@@ -31,23 +31,20 @@ export default function Title({ leftSide }) {
         </Link>
       </div>
 
-      <div className="mx-auto py-2 px-10 border-dashed border-r border-l border-black flex-1 text-center">
-        <h1 className="text-lg font-light lowercase tracking-tight text-center">
-          elia&apos;s <FunkyText text="personal" />{" "}
-          <FunkyText text="database" />
+      <div className="py-2 px-10 flex-1 text-center">
+        <h1 className="text-lg font-light lowercase tracking-tight">
+          elia&apos;s personal database
         </h1>
       </div>
 
       <div className="flex h-full justify-self-end hidden sm:block">
-        <div className="border-l border-black h-full flex">
+        <div className="border-l border-dashed border-black h-full flex">
           <h3 className="px-6 my-auto text-2xs text-right uppercase font-light tracking-tighter hidden lg:block">
             {leftSide ? (
               leftSide
             ) : (
               <span>
-                <span className="font-bold">3</span>{" "}
-                <FunkyText text="active" />{" "}
-                <span>collections</span>
+                3 active collections
               </span>
             )}
           </h3>

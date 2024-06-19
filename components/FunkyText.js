@@ -9,19 +9,12 @@ const FunkyText = ({ text }) => {
     const original = text;
 
     const array = original.split("");
-    // array.push(...["_"]);
 
     const interval = setInterval(() => {
       newString = funkyText.replace(currentIndex, original[currentIndex]);
 
       currentIndex = Math.floor(Math.random() * funkyText.length);
       currentIndex = Math.max(Math.min(currentIndex, newString.length - 2), 1);
-
-      // const char = array[Math.floor(Math.random() * array.length)];
-      // newString =
-      //   newString.slice(0, currentIndex) +
-      //   char +
-      //   newString.slice(currentIndex + 1);
 
       const middleChars = newString.slice(1, -1);
 

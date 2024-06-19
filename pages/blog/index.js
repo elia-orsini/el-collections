@@ -67,7 +67,7 @@ function getDate() {
 
 const Coffee = ({ blogPosts }) => {
   return (
-    <div className="h-screen min-h-screen font-sans flex-col flex">
+    <div className="h-screen min-h-screen flex-col flex">
       <Header
         title="el's blog"
         description="a collection of topics i find interesting."

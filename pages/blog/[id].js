@@ -8,7 +8,7 @@ import Title from "@components/Title";
 
 const BlogPost = ({ blockMap, blogPostInfo }) => {
   return (
-    <div className="min-h-screen font-sans flex-col flex">
+    <div className="min-h-screen flex-col flex">
       <Header
         title={blogPostInfo.title}
         description="..."

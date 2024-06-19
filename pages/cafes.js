@@ -31,7 +31,7 @@ const IndexPage = ({ gla, abdn, edi, roasters }) => {
   }, [city]);
 
   return (
-    <div className="min-h-screen font-sans flex-col flex justify-between">
+    <div className="min-h-screen flex-col flex justify-between">
       <Header
         title="cafes database"
         description="Database of Cafes in Scotland (Glasgow, Edinburgh and Aberdeen)."
