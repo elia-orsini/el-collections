@@ -45,7 +45,7 @@ const IndexPage = () => {
 
       <Title />
 
-      <div className="mx-auto p-2 text-lg w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b border-r border-l border-black ">
+      <div className="mx-auto p-2 text-xl w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b border-r border-l border-black ">
         <p>
           Just a simple website collecting books I read and film I watch and
           coffee I drink.

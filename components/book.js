@@ -10,7 +10,9 @@ export default function Book(props) {
       >
         <div className="hover:bg-gray-100">
           <div className="flex justify-between">
-            <p className="lowercase line-clamp-1 px-2 pb-1 h-max sm:h-12">{props.title}</p>
+            <p className="lowercase line-clamp-1 px-2 pb-1 h-max sm:h-12">
+              {props.title}
+            </p>
 
             {props.link && (
               <a

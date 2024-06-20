@@ -21,18 +21,18 @@ export default function Cafe(props) {
 
   const first = useRef();
 
-  let translation = 0;
-  let animationSpeed = 0.02;
-
-  const gsapAnimation = () => {
-    if (translation < -50) {
-      translation = 0;
-    }
-    gsap.set(first.current, { x: `${translation}%` });
-    translation -= animationSpeed;
-  };
-
   useGSAP(() => {
+    let translation = 0;
+    let animationSpeed = 0.02;
+
+    const gsapAnimation = () => {
+      if (translation < -50) {
+        translation = 0;
+      }
+      gsap.to(first.current, { x: `${translation}%` });
+      translation -= animationSpeed;
+    };
+
     if (toScroll) {
       gsap.ticker.add(gsapAnimation);
     }
@@ -50,16 +50,18 @@ export default function Cafe(props) {
 
   return (
     <div
-      className={`mx-auto border border-black px-2 w-72 ${props.rating === -1 ? `bg-black text-white` : "bg-white"
-        }`}
+      className={`mx-auto border border-black px-2 w-72 ${
+        props.rating === -1 ? `bg-black text-white` : "bg-white"
+      }`}
     >
       <p
-        className={`font-black text-2xl uppercase tracking-tight ${props.rating === -1 && `line-through`
-          }
+        className={`font-black text-2xl uppercase tracking-tight ${
+          props.rating === -1 && `line-through`
+        }
         `}
       >
-        {props.title.length > 17
-          ? props.title.slice(0, 17) + ".."
+        {props.title.length > 19
+          ? props.title.slice(0, 19) + ".."
           : props.title}
       </p>
 
@@ -68,8 +70,9 @@ export default function Cafe(props) {
       </p>
 
       <hr
-        className={`my-0 ${props.rating === -1 ? "border-white" : "border-black"
-          }`}
+        className={`my-0 ${
+          props.rating === -1 ? "border-white" : "border-black"
+        }`}
       />
 
       <div className="flex justify-between">
@@ -110,8 +113,9 @@ export default function Cafe(props) {
       </div>
 
       <hr
-        className={`my-0 ${props.rating === -1 ? "border-white" : "border-black"
-          }`}
+        className={`my-0 ${
+          props.rating === -1 ? "border-white" : "border-black"
+        }`}
       />
 
       <div
