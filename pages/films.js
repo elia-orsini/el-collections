@@ -20,18 +20,16 @@ const IndexPage = ({ items }) => {
 
   return (
     <>
-      <Header title="el's fav films" description="A collection of indie films I watch." />
+      <Header
+        title="el's fav films"
+        description="A collection of indie films I watch."
+      />
 
       <Title
         leftSide={
           <span>
-            <span className="font-bold">{items.length}</span>{" "}
-            <FunkyText text="films" /> <FunkyText text="total" />
-            &nbsp;&nbsp;|&nbsp;&nbsp;{" "}
-            <span className="font-bold">
-              {items.filter(checkWatched).length}
-            </span>{" "}
-            <FunkyText text="watched" />
+            {items.length} films total &nbsp;&nbsp; | &nbsp;&nbsp;{" "}
+            {items.filter(checkWatched).length} watched{" "}
           </span>
         }
       />
@@ -45,16 +43,7 @@ const IndexPage = ({ items }) => {
           }`}
           onClick={() => setSwitch(!switchEvents)}
         >
-          {switchEvents ? (
-            <p>
-              <FunkyText text="show" /> all
-            </p>
-          ) : (
-            <p>
-              <FunkyText text="show" /> <FunkyText text="only" />{" "}
-              <FunkyText text="watched" />
-            </p>
-          )}
+          {switchEvents ? <p>show all</p> : <p>show only watched</p>}
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 my-8">
