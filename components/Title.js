@@ -1,5 +1,4 @@
 import Link from "next/link";
-import FunkyText from "./FunkyText";
 
 export default function Title({ leftSide }) {
   return (

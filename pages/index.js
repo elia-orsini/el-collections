@@ -45,7 +45,7 @@ const IndexPage = () => {
 
       <Title />
 
-      <div className="mx-auto px-2 text-xl w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b border-r border-l border-black">
+      <div className="mx-auto px-2 text-xl w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b sm:border-r sm:border-l border-black">
         <p>
           Just a simple website collecting books I read and film I watch and
           coffee I drink.
@@ -56,7 +56,7 @@ const IndexPage = () => {
       </div>
 
       <div className="h-full flex">
-        <div className="flex flex-col sm:flex-row my-auto mx-auto w-full py-20 sm:w-4/5 md:w-3/5 h-full border-dashed border-r border-l border-black">
+        <div className="flex flex-col sm:flex-row my-auto mx-auto w-full py-20 sm:w-4/5 md:w-3/5 h-full border-dashed sm:border-r sm:border-l border-black">
           <Link href="/films" passHref>
             <p className="mainTitle mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
               Films

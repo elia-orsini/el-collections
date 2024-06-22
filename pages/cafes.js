@@ -8,7 +8,6 @@ import Cafe from "@components/Cafe";
 import Title from "@components/Title";
 import SwitchButton from "@components/common/SwitchButton";
 import RatingsExplanation from "@components/RatingsExplanation";
-import FunkyText from "@components/FunkyText";
 
 const IndexPage = ({ gla, abdn, edi, roasters }) => {
   const [city, setCity] = useState("GLA");
@@ -38,14 +37,7 @@ const IndexPage = ({ gla, abdn, edi, roasters }) => {
       />
 
       <div className="w-full">
-        <Title
-          leftSide={
-            <span>
-              <span className="font-bold">{toShow.length}</span>{" "}
-              <FunkyText text="cafes" /> <FunkyText text="total" />
-            </span>
-          }
-        />
+        <Title leftSide={<span>{toShow.length} cafes total</span>} />
 
         <div className="h-full mx-auto w-max flex flex-col justify-start">
           <RatingsExplanation />

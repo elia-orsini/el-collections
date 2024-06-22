@@ -6,7 +6,6 @@ import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Film from "@components/Film";
 import Title from "@components/Title";
-import FunkyText from "@components/FunkyText";
 
 function checkWatched(item) {
   const itemStatus = item.properties.STATUS.select;
