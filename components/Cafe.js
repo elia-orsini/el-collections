@@ -60,8 +60,8 @@ export default function Cafe(props) {
         }
         `}
       >
-        {props.title.length > 19
-          ? props.title.slice(0, 19) + ".."
+        {props.title.length > 18
+          ? props.title.slice(0, 18) + ".."
           : props.title}
       </p>
 

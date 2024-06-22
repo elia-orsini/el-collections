@@ -40,13 +40,7 @@ export default function Title({ leftSide }) {
       <div className="flex h-full justify-self-end hidden sm:block">
         <div className="border-l border-dashed border-black h-full flex">
           <h3 className="px-6 my-auto text-2xs text-right uppercase font-light tracking-tighter hidden lg:block">
-            {leftSide ? (
-              leftSide
-            ) : (
-              <span>
-                3 active collections
-              </span>
-            )}
+            {leftSide ? leftSide : <span>3 active collections</span>}
           </h3>
         </div>
       </div>
