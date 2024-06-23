@@ -45,14 +45,14 @@ const IndexPage = () => {
 
       <Title />
 
-      <div className="mx-auto px-2 text-xl w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b sm:border-r sm:border-l border-black">
-        <p>
+      <div className="mx-auto px-2 w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b sm:border-r sm:border-l border-black">
+        <p className="text-2xl">
           Just a simple website collecting books I read and film I watch and
           coffee I drink.
+          <p className="inline ml-2 mb-4 py-0.5 text-sm bg-black text-white w-max px-1">
+            WARNING: very opinionated
+          </p>
         </p>
-        <span className="text-xs bg-black text-white w-max px-1">
-          WARNING: very opinionated
-        </span>
       </div>
 
       <div className="h-full flex">

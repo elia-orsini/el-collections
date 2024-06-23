@@ -1,6 +1,7 @@
 import "tailwindcss/tailwind.css";
 import React, { useEffect, useState } from "react";
 import { Client } from "@notionhq/client";
+import Link from "next/link";
 
 import Header from "@components/Header";
 import Footer from "@components/Footer";
@@ -41,6 +42,10 @@ const IndexPage = ({ gla, abdn, edi, roasters }) => {
 
         <div className="h-full mx-auto w-max flex flex-col justify-start">
           <RatingsExplanation />
+
+          <Link href="/roasters">
+            <p className="mx-auto underline mt-6 cursor-pointer">Coffee Roasters</p>
+          </Link>
 
           <div className="flex my-6">
             <SwitchButton
