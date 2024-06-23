@@ -39,7 +39,7 @@ const IndexPage = ({ roasters }) => {
           <div className="p-2">
             {Object.keys(continentMap).map((continent) => {
               return (
-                <div className="mb-20">
+                <div className="mb-20" key={`continent_${continent}`}>
                   <p className="mt-20 mb-4 text-sm">{continent}</p>
                   {continentMap[continent].map((roaster) => {
                     return (

@@ -44,7 +44,9 @@ const IndexPage = ({ gla, abdn, edi, roasters }) => {
           <RatingsExplanation />
 
           <Link href="/roasters">
-            <p className="mx-auto underline mt-6 cursor-pointer">Coffee Roasters</p>
+            <p className="mx-auto underline mt-6 cursor-pointer">
+              Coffee Roasters
+            </p>
           </Link>
 
           <div className="flex my-6">
@@ -55,7 +57,7 @@ const IndexPage = ({ gla, abdn, edi, roasters }) => {
             />
           </div>
 
-          <div className="p-2 sm:p-4 border border-black bg-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="p-2 sm:p-4 border border-black bg-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-8 mb-8">
             {toShow.map((obj) => {
               return (
                 <Cafe
