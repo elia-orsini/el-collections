@@ -54,9 +54,14 @@ const IndexPage = ({ roasters }) => {
                       <div
                         key={`roaster_${roaster.properties.Name.title[0].text.content}`}
                       >
-                        <span className="text-xl">
-                          {roaster.properties.Name.title[0].text.content}
-                        </span>
+                        <a
+                          href={roaster.properties.Website.url}
+                          target="_blank"
+                        >
+                          <span className="text-xl cursor-pointer">
+                            {roaster.properties.Name.title[0].text.content}
+                          </span>
+                        </a>
                         <span className="text-sm mx-1">_</span>
                         <span className="text-sm">
                           {roaster.properties.City.rich_text[0].text.content}
