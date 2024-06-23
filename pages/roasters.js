@@ -9,10 +9,18 @@ import Title from "@components/Title";
 const IndexPage = ({ roasters }) => {
   const [continentMap, setContinentMap] = useState({});
 
+  const sortedRoasters = [...roasters].sort((a, b) => {
+    const nameA = a.properties.City.rich_text[0].text.content.toLowerCase();
+    const nameB = b.properties.City.rich_text[0].text.content.toLowerCase();
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+    return 0;
+  });
+
   useEffect(() => {
     let continentsGroup = {};
 
-    roasters.forEach((item) => {
+    sortedRoasters.forEach((item) => {
       const continent = item.properties.continent.rich_text[0].plain_text;
 
       if (!continentsGroup[continent]) {
@@ -39,8 +47,8 @@ const IndexPage = ({ roasters }) => {
           <div className="p-2">
             {Object.keys(continentMap).map((continent) => {
               return (
-                <div className="mb-20" key={`continent_${continent}`}>
-                  <p className="mt-20 mb-4 text-sm">{continent}</p>
+                <div className="mb-10" key={`continent_${continent}`}>
+                  <p className="mt-10 mb-4 text-sm">{continent}</p>
                   {continentMap[continent].map((roaster) => {
                     return (
                       <div
@@ -49,7 +57,7 @@ const IndexPage = ({ roasters }) => {
                         <span className="text-xl">
                           {roaster.properties.Name.title[0].text.content}
                         </span>
-                        <span className="text-sm mx-2 ">-</span>
+                        <span className="text-sm mx-1">_</span>
                         <span className="text-sm">
                           {roaster.properties.City.rich_text[0].text.content}
                         </span>
