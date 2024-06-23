@@ -36,8 +36,8 @@ const IndexPage = ({ roasters }) => {
   return (
     <div className="min-h-screen flex-col flex justify-between">
       <Header
-        title="cafes database"
-        description="Database of Cafes in Scotland (Glasgow, Edinburgh and Aberdeen)."
+        title="roasters database"
+        description="Database of Roasters in the world."
       />
 
       <div className="w-full">
