@@ -57,6 +57,7 @@ const IndexPage = ({ roasters }) => {
                         <a
                           href={roaster.properties.Website.url}
                           target="_blank"
+                          rel="noreferrer"
                         >
                           <span className="text-xl cursor-pointer">
                             {roaster.properties.Name.title[0].text.content}
