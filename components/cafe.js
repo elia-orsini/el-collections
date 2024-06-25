@@ -4,26 +4,35 @@ import { useGSAP } from "@gsap/react";
 
 function getRoasterNameById(id, allRoasters) {
   const page = allRoasters.find((item) => item.id === id);
+
   if (page) {
     return page.properties.Name.title[0].plain_text;
   }
+
   return null;
 }
 
-export default function Cafe(props) {
+export default function Cafe({
+  title,
+  rating,
+  address,
+  link,
+  roastersIDs,
+  allRoasters,
+}) {
   const [toScroll, setToScroll] = useState(false);
 
   const roasters =
-    props.roasters &&
-    props.roasters.map((roaster) => {
-      return getRoasterNameById(roaster.id, props.allRoasters);
+    allRoasters.length &&
+    roastersIDs.map((roaster) => {
+      return getRoasterNameById(roaster.id, allRoasters);
     });
 
   const first = useRef();
 
   useGSAP(() => {
     let translation = 0;
-    let animationSpeed = 0.02;
+    const animationSpeed = 0.025;
 
     const gsapAnimation = () => {
       if (translation < -50) {
@@ -39,54 +48,48 @@ export default function Cafe(props) {
   }, [toScroll]);
 
   useEffect(() => {
-    const element = document.getElementById(
-      `scrollingContainer-${props.title}`
-    );
+    const element = document.getElementById(`scrollingContainer-${title}`);
 
     if (element.scrollWidth > element.clientWidth) {
       setToScroll(true);
     }
-  }, []);
+  }, [roasters]);
 
   return (
     <div
       className={`mx-auto border border-black px-2 w-72 ${
-        props.rating === -1 ? `bg-black text-white` : "bg-white"
+        rating === -1 ? `bg-black text-white` : "bg-white"
       }`}
     >
       <p
         className={`font-black text-2xl uppercase tracking-tight ${
-          props.rating === -1 && `line-through`
+          rating === -1 && `line-through`
         }
         `}
       >
-        {props.title.length > 18
-          ? props.title.slice(0, 18) + ".."
-          : props.title}
+        {title.length > 17 ? title.slice(0, 17) + ".." : title}
       </p>
 
       <p className="font-extralight tracking-wide text-sm uppercase">
-        {props.address}
+        {address}
       </p>
 
       <hr
-        className={`my-0 ${
-          props.rating === -1 ? "border-white" : "border-black"
-        }`}
+        className={`my-0 ${rating === -1 ? "border-white" : "border-black"}`}
       />
 
       <div className="flex justify-between">
-        {props.rating > 0 && (
+        {rating > 0 && (
           <img
             alt="stars"
             className="w-20 -mt-2 -mb-2"
-            src={`${props.rating}starsb.png`}
+            src={`${rating}starsb.png`}
           />
         )}
 
-        {props.rating === 0 && <div className="text-white">.</div>}
+        {rating === 0 && <div className="text-white">.</div>}
 
-        {props.rating === -1 && (
+        {rating === -1 && (
           <img
             alt="stars"
             className="inline w-20 -mt-2 -mb-2"
@@ -94,9 +97,9 @@ export default function Cafe(props) {
           />
         )}
 
-        {props.link !== "#" && (
+        {link !== "#" && (
           <a
-            href={props.link}
+            href={link}
             target="_blank"
             rel="noreferrer"
             className="flex py-auto items-center cursor-pointer"
@@ -113,13 +116,11 @@ export default function Cafe(props) {
       </div>
 
       <hr
-        className={`my-0 ${
-          props.rating === -1 ? "border-white" : "border-black"
-        }`}
+        className={`my-0 ${rating === -1 ? "border-white" : "border-black"}`}
       />
 
       <div
-        id={`scrollingContainer-${props.title}`}
+        id={`scrollingContainer-${title}`}
         className="flex overflow-hidden w-full select-none"
       >
         <div ref={first} className={`flex py-1 gap-x-1 w-max`}>

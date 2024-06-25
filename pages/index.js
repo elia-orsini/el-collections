@@ -49,30 +49,36 @@ const IndexPage = () => {
         <p className="text-2xl">
           Just a simple website collecting books I read and film I watch and
           coffee I drink.
-          <p className="inline ml-2 mb-4 py-0.5 text-sm bg-black text-white w-max px-1">
+          <span className="inline ml-2 mb-4 py-0.5 text-sm bg-black text-white w-max px-1">
             WARNING: very opinionated
-          </p>
+          </span>
         </p>
       </div>
 
       <div className="h-full flex">
         <div className="flex flex-col sm:flex-row my-auto mx-auto w-full py-20 sm:w-4/5 md:w-3/5 h-full border-dashed sm:border-r sm:border-l border-black">
-          <Link href="/films" passHref>
-            <p className="mainTitle mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
-              Films
-            </p>
+          <Link
+            href="/films"
+            passHref
+            className="mainTitle mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700"
+          >
+            Films
           </Link>
 
-          <Link href="/cafes" passHref>
-            <p className="mainTitle mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
-              Cafes
-            </p>
+          <Link
+            href="/cafes"
+            passHref
+            className="mainTitle mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700"
+          >
+            Cafes
           </Link>
 
-          <Link href="/books" passHref>
-            <p className="mainTitle mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700">
-              Books
-            </p>
+          <Link
+            href="/books"
+            passHref
+            className="mainTitle mx-auto my-auto cursor-pointer text-5xl lowercase tracking-tight hover:text-gray-700"
+          >
+            Books
           </Link>
         </div>
       </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Film(props) {
   return (
-    <div className="flex-1 border border-black bg-white">
+    <div className="flex flex-col w-max mx-auto border border-black bg-white">
       <a href={props.link} target="_blank" rel="noreferrer">
         <img
           width={300}

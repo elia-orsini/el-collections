@@ -1,17 +1,15 @@
-import Head from "next/head";
 import Layout from "@components/layout";
+import localFont from "@next/font/local";
+
+const websiteFont = localFont({ src: "../public/fonts/website-font.ttf" });
 
 function MyApp({ Component, pageProps }) {
+  console.log(websiteFont);
   return (
     <Layout>
-      <Head>
-        <title>el&apos;s collections</title>
-        <meta name="Description" content="elia's collections" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link href="/fonts/style.css" rel="stylesheet" />
-      </Head>
-
-      <Component {...pageProps} />
+      <div className={websiteFont.className}>
+        <Component {...pageProps} />
+      </div>
     </Layout>
   );
 }

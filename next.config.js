@@ -1,6 +1,5 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-})
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'mdx'],
-})
+// next.config.js
+module.exports = {
+  reactStrictMode: true,
+  // Add any new configuration options here
+};
