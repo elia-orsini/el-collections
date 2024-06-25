@@ -1,6 +1,5 @@
 "use client";
 
-import "tailwindcss/tailwind.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 

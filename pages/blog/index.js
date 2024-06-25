@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import "react-notion/src/styles.css";

@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css";
 import React, { useState } from "react";
 import { Client } from "@notionhq/client";
 
