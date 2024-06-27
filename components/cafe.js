@@ -53,7 +53,7 @@ export default function Cafe({
     if (element.scrollWidth > element.clientWidth) {
       setToScroll(true);
     }
-  }, [roasters]);
+  }, [roasters, title]);
 
   return (
     <div
