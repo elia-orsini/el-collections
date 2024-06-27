@@ -16,7 +16,7 @@ const Template = ({ children }) => {
       {
         yPercent: 200,
         stagger: 0.2,
-        duration: 2,
+        duration: 1,
         delay: 0.1,
       }
     );
@@ -24,7 +24,7 @@ const Template = ({ children }) => {
 
   return (
     <>
-      {/* <div>
+      <div>
         <div
           id="blackBanner"
           className="min-h-screen bg-black z-20 fixed top-0 left-0 w-1/4"
@@ -41,7 +41,7 @@ const Template = ({ children }) => {
           id="blackBanner"
           className="min-h-screen bg-black z-20 fixed top-0 left-3/4 w-1/4"
         ></div>
-      </div> */}
+      </div>
       {children}
     </>
   );

@@ -17,8 +17,6 @@ async function getData(slug) {
 export default async function Page({ params }) {
   const { bookContent } = await getData(params.slug);
 
-  console.log(bookContent);
-
   return (
     <div className="min-h-screen flex-col flex">
       <Header title="blog post" description="..." />
