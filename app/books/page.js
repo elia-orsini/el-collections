@@ -46,7 +46,7 @@ const IndexPage = () => {
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
 
   const booksToRead = 15;
-  const booksRead = currentYearData && currentYearData.length;
+  const booksRead = currentYearData ? currentYearData.length : 0;
   const booksADay = (remainingDays / (booksToRead - booksRead)).toFixed(2);
 
   useEffect(() => {
