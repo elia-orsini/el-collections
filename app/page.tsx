@@ -3,14 +3,13 @@ import React from "react";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
-import Footer from "@components/Footer";
-import Title from "@components/Title";
-import Header from "@components/Header";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Title from "../components/Title";
 
 const IndexPage = () => {
   useGSAP(() => {
-    const mainTitles = gsap.utils.toArray(".mainTitle");
+    const mainTitles: HTMLDivElement[] = gsap.utils.toArray(".mainTitle");
 
     mainTitles.forEach((title) => {
       const generateTween = () =>
@@ -21,7 +20,7 @@ const IndexPage = () => {
           duration: 0.3,
         });
 
-      let tween;
+      let tween: gsap.core.Tween;
 
       title.addEventListener("mouseenter", () => {
         tween = generateTween();

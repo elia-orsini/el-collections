@@ -1,5 +1,5 @@
 {
-  "name": "el_films",
+  "name": "el_db",
   "version": "2.0.0",
   "license": "MIT",
   "description": "",
@@ -12,15 +12,8 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@mdx-js/loader": "^1.5.1",
-    "@mdx-js/mdx": "^0.9.0",
-    "@mdx-js/react": "^1.6.18",
-    "@mdx-js/tag": "^0.20.3",
     "@next/font": "^14.2.4",
-    "@next/mdx": "^13.1.6",
     "@notionhq/client": "1.0.4",
-    "@zeit/next-mdx": "^1.2.0",
-    "gray-matter": "^4.0.3",
     "gsap": "^3.12.5",
     "next": "^14.0.0",
     "prismjs": "^1.29.0",
@@ -31,6 +24,10 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router": "^5.1.20",
     "autoprefixer": "^10.4.19",
     "classnames": "2.3.1",
     "eslint": "7.32.0",
@@ -40,6 +37,7 @@
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-hover-media-feature": "1.0.1",
     "postcss-preset-env": "6.7.0",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.2"
   }
 }

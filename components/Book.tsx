@@ -1,20 +1,24 @@
-export default function Book(props) {
-  const options = { month: "long", day: "numeric" };
-
+const Book: React.FC<{
+  id: string;
+  link: string;
+  title: string;
+  author: string;
+  dateFinished: string;
+}> = ({ id, link, title, author, dateFinished }) => {
   return (
-    <a href={props.link ? `book/${props.id}` : "#"}>
+    <a href={link ? `books/${id}` : "#"}>
       <div
         className={`mx-auto border h-full border-black font-semibold w-72 text-left ${
-          props.link ? "cursor-pointer" : "cursor-default"
+          link ? "cursor-pointer" : "cursor-default"
         }`}
       >
         <div className="hover:bg-gray-100">
           <div className="flex justify-between">
             <p className="lowercase line-clamp-1 px-2 pb-1 h-max sm:h-12">
-              {props.title}
+              {title}
             </p>
 
-            {props.link && (
+            {link && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
@@ -29,21 +33,23 @@ export default function Book(props) {
           <hr className="border-black" />
 
           <p className="font-normal tracking-wide text-sm uppercase px-2 py-1">
-            {props.author}
+            {author}
           </p>
 
           <hr className="border-black" />
 
           <div className="flex justify-between">
             <p className="text-sm font-light inline pl-2 py-1">
-              {new Date(props.dateFinished).toLocaleDateString(
-                "en-GB",
-                options
-              )}
+              {new Date(dateFinished).toLocaleDateString("en-GB", {
+                month: "long",
+                day: "numeric",
+              })}
             </p>
           </div>
         </div>
       </div>
     </a>
   );
-}
+};
+
+export default Book;

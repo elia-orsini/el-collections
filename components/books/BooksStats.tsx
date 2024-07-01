@@ -1,4 +1,9 @@
-export default function BooksStats({ thisYear, booksRead, booksToRead, passedDays }) {
+const BooksStats: React.FC<{
+  thisYear: boolean;
+  booksRead: number;
+  booksToRead: number;
+  passedDays: number;
+}> = ({ thisYear, booksRead, booksToRead, passedDays }) => {
   return (
     <div className="mx-auto mt-4 w-72 border border-black divide-x divide-black text-center grid grid-cols-3">
       <div>
@@ -17,4 +22,6 @@ export default function BooksStats({ thisYear, booksRead, booksToRead, passedDay
       </div>
     </div>
   );
-}
+};
+
+export default BooksStats;

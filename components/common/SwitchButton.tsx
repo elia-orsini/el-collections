@@ -1,4 +1,10 @@
-export default function SwitchButton({ setState, state, states }) {
+import { Dispatch, SetStateAction } from "react";
+
+const SwitchButton: React.FC<{
+  setState: Dispatch<SetStateAction<string>>;
+  state: string;
+  states: string[];
+}> = ({ setState, state, states }) => {
   return (
     <div className="flex mx-auto bg-black text-sm">
       {states.map((currentState, i) => {
@@ -16,4 +22,6 @@ export default function SwitchButton({ setState, state, states }) {
       })}
     </div>
   );
-}
+};
+
+export default SwitchButton;

@@ -1,5 +1,3 @@
-import { Client } from "@notionhq/client";
-
 export async function GET(request, { params }) {
   const slug = params.slug;
 
@@ -23,13 +21,9 @@ export async function GET(request, { params }) {
       break;
   }
 
-  const notion = new Client({
-    auth: process.env.SECRET,
-  });
-
-  const data = await notion.databases.query({
-    database_id: databaseId,
-  });
+  const data = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${databaseId}`
+  ).then((res) => res.json());
 
   return Response.json(data);
 }

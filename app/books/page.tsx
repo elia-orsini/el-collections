@@ -1,15 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import useBooks from "../../hooks/useBooks";
+import Header from "../../components/Header";
+import Title from "../../components/Title";
+import SwitchButton from "../../components/common/SwitchButton";
+import Book from "../../components/Book";
+import Footer from "../../components/Footer";
+import BooksStats from "../../components/books/BooksStats";
 
-import Footer from "@components/Footer";
-import Header from "@components/Header";
-import Book from "@components/Book";
-import Title from "@components/Title";
-import SwitchButton from "@components/common/SwitchButton";
-import BooksStats from "@components/books/BooksStats";
-import useBooks from "hooks/useBooks";
-
-const IndexPage = () => {
+const Books = () => {
   const [thisYear, setThisYear] = useState("2024");
   const [currentYearData, setCurrentYearData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -106,27 +105,4 @@ const IndexPage = () => {
   );
 };
 
-// export const getStaticProps = async () => {
-//   const books22 = await fetch(
-//     `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS2022}`
-//   ).then((res) => res.json());
-
-//   const books23 = await fetch(
-//     `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS2023}`
-//   ).then((res) => res.json());
-
-//   const books24 = await fetch(
-//     `https://notion-api.splitbee.io/v1/table/${process.env.BOOKS2024}`
-//   ).then((res) => res.json());
-
-//   return {
-//     props: {
-//       books2022: books22,
-//       books2023: books23,
-//       books2024: books24,
-//     },
-//     revalidate: 30,
-//   };
-// };
-
-export default IndexPage;
+export default Books;

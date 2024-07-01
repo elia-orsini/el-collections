@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { ReactNode } from "react";
 
-export default function Title({ leftSide }) {
+const Title: React.FC<{ leftSide?: ReactNode }> = ({ leftSide }) => {
   return (
     <div className="w-full bg-white flex border-dashed border-b border-black grid lg:grid-cols-3 z-10">
       <div className="flex w-max h-full border-r border-dashed border-black hidden lg:flex cursor-pointer">
@@ -43,4 +44,6 @@ export default function Title({ leftSide }) {
       </div>
     </div>
   );
-}
+};
+
+export default Title;

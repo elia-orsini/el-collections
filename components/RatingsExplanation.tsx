@@ -1,4 +1,4 @@
-export default function RatingsExplanation() {
+const RatingsExplanation: React.FC = () => {
   return (
     <div className="mx-auto flex w-72 border border-black mt-8">
       <div className="text-left mx-auto text-2xs">
@@ -45,4 +45,6 @@ export default function RatingsExplanation() {
       </div>
     </div>
   );
-}
+};
+
+export default RatingsExplanation;

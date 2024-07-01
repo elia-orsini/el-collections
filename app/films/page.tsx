@@ -1,24 +1,25 @@
 "use client";
 import React, { useState } from "react";
-import { Client } from "@notionhq/client";
 
-import Footer from "@components/Footer";
-import Header from "@components/Header";
-import Film from "@components/Film";
-import Title from "@components/Title";
-import useFilms from "hooks/useFilms";
-
-function checkWatched(item) {
-  const itemStatus = item.properties.STATUS.select;
-  return itemStatus && itemStatus.name === "WATCHED";
-}
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Title from "../../components/Title";
+import Film from "../../components/Film";
+import useFilms from "../../hooks/useFilms";
+import { IFilm } from "../../types/Film";
 
 const IndexPage = () => {
   const [switchEvents, setSwitch] = useState(false);
 
   const { films, isLoading } = useFilms();
 
-  const filteredItems = switchEvents ? films.filter(checkWatched) : films;
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
+  const filteredItems = switchEvents
+    ? films.filter((item: IFilm) => item.status === "WATCHED")
+    : films;
 
   return (
     <>
@@ -31,7 +32,8 @@ const IndexPage = () => {
         leftSide={
           <span>
             {films.length} films total &nbsp;&nbsp; | &nbsp;&nbsp;{" "}
-            {films.filter(checkWatched).length} watched{" "}
+            {films.filter((item: IFilm) => item.status === "WATCHED").length}{" "}
+            watched{" "}
           </span>
         }
       />
@@ -54,19 +56,14 @@ const IndexPage = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 w-max mx-auto md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 my-8">
-            {filteredItems.map((obj) => {
+            {filteredItems.map((obj: any) => {
               return (
                 <Film
                   key={obj.id}
-                  title={obj.properties.Name.title[0].plain_text}
-                  link={obj.properties.URL.url}
-                  img={obj.properties.IMG.url}
-                  status={
-                    obj.properties.STATUS.select
-                      ? obj.properties.STATUS.select.name
-                      : null
-                  }
-                  rating={obj.properties.RATING.number}
+                  title={obj.name}
+                  link={obj.url}
+                  img={obj.img}
+                  rating={obj.rating}
                 />
               );
             })}

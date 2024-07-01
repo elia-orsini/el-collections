@@ -1,13 +1,7 @@
-import { Client } from "@notionhq/client";
-
 export async function GET() {
-  const notion = new Client({
-    auth: process.env.SECRET,
-  });
-
-  const data = await notion.databases.query({
-    database_id: process.env.ROASTERS,
-  });
+  const data = await fetch(
+    `https://notion-api.splitbee.io/v1/table/${process.env.ROASTERS}`
+  ).then((res) => res.json());
 
   return Response.json(data);
 }

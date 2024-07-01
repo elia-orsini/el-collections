@@ -1,20 +1,20 @@
 import "react-notion/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import { NotionRenderer } from "react-notion";
+import Header from "../../../components/Header";
+import Title from "../../../components/Title";
+import Footer from "../../../components/Footer";
+import { NextPage } from "next";
 
-import Header from "@components/Header";
-import Footer from "@components/Footer";
-import Title from "@components/Title";
-
-async function getData(slug) {
+async function getData(slug: string) {
   const data = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${slug}`
+    `https://notion-api.splitbee.io/v1/page/${slug}`
   ).then((res) => res.json());
 
   return { bookContent: data };
 }
 
-export default async function Page({ params }) {
+const Page: NextPage<{ params: any }> = async ({ params }) => {
   const { bookContent } = await getData(params.slug);
 
   return (
@@ -32,4 +32,6 @@ export default async function Page({ params }) {
       <Footer />
     </div>
   );
-}
+};
+
+export default Page;
