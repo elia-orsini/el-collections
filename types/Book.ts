@@ -1,8 +1,7 @@
 export interface IBook {
   id: string;
-  name: string;
-  url: string;
-  img: string;
-  status: string;
-  rating: number;
+  title: string;
+  author: string;
+  date_read: string;
+  link: string;
 }

@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
+
 import useBooks from "../../hooks/useBooks";
 import Header from "../../components/Header";
 import Title from "../../components/Title";
@@ -7,6 +9,7 @@ import SwitchButton from "../../components/common/SwitchButton";
 import Book from "../../components/Book";
 import Footer from "../../components/Footer";
 import BooksStats from "../../components/books/BooksStats";
+import { IBook } from "../../types/Book";
 
 const Books = () => {
   const [thisYear, setThisYear] = useState("2024");
@@ -41,7 +44,9 @@ const Books = () => {
     }
   }, [thisYear, books2022, books2023, books2024]);
 
+  // @ts-ignore
   const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
+  // @ts-ignore
   const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
 
   const booksToRead = 15;
@@ -83,15 +88,15 @@ const Books = () => {
           ) : (
             <div className="text-center mx-auto my-auto mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
               {currentYearData.length &&
-                currentYearData.map((book) => {
+                currentYearData.map((book: IBook) => {
                   return (
                     <Book
                       key={book.id}
                       id={book.id}
-                      title={book.TITLE}
-                      author={book.AUTHOR}
-                      dateFinished={book.DATE_READ}
-                      link={book.LINK}
+                      title={book.title}
+                      author={book.author}
+                      dateFinished={book.date_read}
+                      link={book.link}
                     />
                   );
                 })}
