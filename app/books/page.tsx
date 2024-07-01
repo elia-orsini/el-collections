@@ -10,6 +10,7 @@ import Book from "../../components/Book";
 import Footer from "../../components/Footer";
 import BooksStats from "../../components/books/BooksStats";
 import { IBook } from "../../types/Book";
+import LoadingPage from "../../components/LoadingPage";
 
 const Books = () => {
   const [thisYear, setThisYear] = useState("2024");
@@ -59,6 +60,10 @@ const Books = () => {
     console.log(booksADay + " days to read a book");
   }, [booksADay]);
 
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
   return (
     <div className="flex flex-col min-h-screen justify-between">
       <Header
@@ -85,25 +90,21 @@ const Books = () => {
             />
           </div>
 
-          {isLoading ? (
-            <p className="text-center mx-auto">loading...</p>
-          ) : (
-            <div className="text-center mx-auto my-auto mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-              {currentYearData.length &&
-                currentYearData.map((book: IBook) => {
-                  return (
-                    <Book
-                      key={book.id}
-                      id={book.id}
-                      title={book.title}
-                      author={book.author}
-                      dateFinished={book.date_read}
-                      link={book.link}
-                    />
-                  );
-                })}
-            </div>
-          )}
+          <div className="text-center mx-auto my-auto mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+            {currentYearData.length &&
+              currentYearData.map((book: IBook) => {
+                return (
+                  <Book
+                    key={book.id}
+                    id={book.id}
+                    title={book.title}
+                    author={book.author}
+                    dateFinished={book.date_read}
+                    link={book.link}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
 

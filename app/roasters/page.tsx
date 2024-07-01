@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import Title from "../../components/Title";
 import Header from "../../components/Header";
 import { IRoaster } from "../../types/Roaster";
+import LoadingPage from "../../components/LoadingPage";
 
 const IndexPage: React.FC = () => {
   const [continentMap, setContinentMap] = useState<{
@@ -41,7 +42,7 @@ const IndexPage: React.FC = () => {
   }, [roasters, isLoading]);
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <LoadingPage />;
   }
 
   return (
@@ -52,7 +53,7 @@ const IndexPage: React.FC = () => {
       />
 
       <div className="w-full">
-        <Title leftSide={<span>roasters</span>} />
+        <Title leftSide={<span>{roasters.length} roasters</span>} />
 
         <div className="h-full mx-auto w-max flex flex-col justify-start">
           <div className="p-2">
