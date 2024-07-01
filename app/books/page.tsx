@@ -20,6 +20,8 @@ const Books = () => {
   const books2023 = useBooks("2023");
   const books2024 = useBooks("2024");
 
+  console.log(currentYearData);
+
   const oneDay = 24 * 60 * 60 * 1000;
   const lastDay = new Date(2025, 0, 1);
   const firstDay = new Date(2024, 0, 1);
