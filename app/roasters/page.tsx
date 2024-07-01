@@ -1,29 +1,34 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
+import useRoasters from "../../hooks/useRoasters";
+import Footer from "../../components/Footer";
+import Title from "../../components/Title";
+import Header from "../../components/Header";
+import { IRoaster } from "../../types/Roaster";
 
-import Header from "@components/Header";
-import Footer from "@components/Footer";
-import Title from "@components/Title";
-import useRoasters from "hooks/useRoasters";
+const IndexPage: React.FC = () => {
+  const [continentMap, setContinentMap] = useState<{
+    [key: string]: IRoaster[];
+  }>({});
 
-const IndexPage = () => {
-  const [continentMap, setContinentMap] = useState({});
-
-  const { roasters } = useRoasters();
+  const { roasters, isLoading } = useRoasters();
 
   useEffect(() => {
-    const sortedRoasters = roasters.sort((a, b) => {
-      const nameA = a.properties.City.rich_text[0].text.content.toLowerCase();
-      const nameB = b.properties.City.rich_text[0].text.content.toLowerCase();
+    if (isLoading) return;
+
+    const sortedRoasters = roasters.sort((a: IRoaster, b: IRoaster) => {
+      const nameA = a.City.toLowerCase();
+      const nameB = b.City.toLowerCase();
       if (nameA < nameB) return -1;
       if (nameA > nameB) return 1;
       return 0;
     });
 
-    let continentsGroup = {};
+    let continentsGroup: { [key: string]: IRoaster[] } = {};
 
-    sortedRoasters.forEach((item) => {
-      const continent = item.properties.continent.rich_text[0].plain_text;
+    sortedRoasters.forEach((item: IRoaster) => {
+      const continent = item.Continent;
 
       if (!continentsGroup[continent]) {
         continentsGroup[continent] = [];
@@ -33,7 +38,11 @@ const IndexPage = () => {
     });
 
     setContinentMap(continentsGroup);
-  }, [roasters]);
+  }, [roasters, isLoading]);
+
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
 
   return (
     <div className="min-h-screen flex-col flex justify-between">
@@ -53,27 +62,20 @@ const IndexPage = () => {
                   return (
                     <div className="mb-10" key={`continent_${continent}`}>
                       <p className="mt-10 mb-4 text-sm">{continent}</p>
-                      {continentMap[continent].map((roaster) => {
+                      {continentMap[continent].map((roaster: IRoaster) => {
                         return (
-                          <div
-                            key={`roaster_${roaster.properties.Name.title[0].text.content}`}
-                          >
+                          <div key={`roaster_${roaster.Name}`}>
                             <a
-                              href={roaster.properties.Website.url}
+                              href={roaster.Website}
                               target="_blank"
                               rel="noreferrer"
                             >
                               <span className="text-xl cursor-pointer">
-                                {roaster.properties.Name.title[0].text.content}
+                                {roaster.Name}
                               </span>
                             </a>
                             <span className="text-sm mx-1">_</span>
-                            <span className="text-sm">
-                              {
-                                roaster.properties.City.rich_text[0].text
-                                  .content
-                              }
-                            </span>
+                            <span className="text-sm">{roaster.City}</span>
                           </div>
                         );
                       })}
