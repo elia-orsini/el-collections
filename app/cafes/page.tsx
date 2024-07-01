@@ -11,6 +11,7 @@ import useRoasters from "../../hooks/useRoasters";
 import useCafes from "../../hooks/useCafes";
 import SwitchButton from "../../components/common/SwitchButton";
 import Footer from "../../components/Footer";
+import LoadingPage from "../../components/LoadingPage";
 
 const IndexPage = () => {
   const [city, setCity] = useState("gla");
@@ -51,7 +52,7 @@ const IndexPage = () => {
     roasters.isLoading;
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <LoadingPage />;
   }
 
   return (

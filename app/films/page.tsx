@@ -7,6 +7,7 @@ import Title from "../../components/Title";
 import Film from "../../components/Film";
 import useFilms from "../../hooks/useFilms";
 import { IFilm } from "../../types/Film";
+import LoadingPage from "../../components/LoadingPage";
 
 const IndexPage = () => {
   const [switchEvents, setSwitch] = useState(false);
@@ -14,7 +15,7 @@ const IndexPage = () => {
   const { films, isLoading } = useFilms();
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <LoadingPage />;
   }
 
   const filteredItems = switchEvents
@@ -50,25 +51,19 @@ const IndexPage = () => {
           {switchEvents ? <p>show all</p> : <p>show only watched</p>}
         </button>
 
-        {isLoading ? (
-          <div className="h-screen flex">
-            <p className="m-auto">Loading...</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 w-max mx-auto md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 my-8">
-            {filteredItems.map((obj: any) => {
-              return (
-                <Film
-                  key={obj.id}
-                  title={obj.name}
-                  link={obj.url}
-                  img={obj.img}
-                  rating={obj.rating}
-                />
-              );
-            })}
-          </div>
-        )}
+        <div className="grid grid-cols-1 w-max mx-auto md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 my-8">
+          {filteredItems.map((obj: any) => {
+            return (
+              <Film
+                key={obj.id}
+                title={obj.name}
+                link={obj.url}
+                img={obj.img}
+                rating={obj.rating}
+              />
+            );
+          })}
+        </div>
       </div>
 
       <Footer />
