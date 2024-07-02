@@ -1,6 +1,6 @@
 export async function GET() {
   const data = await fetch(
-    `https://notion-api.splitbee.io/v1/table/${process.env.ROASTERS}`,
+    `${process.env.CLOUDFLARE_WORKER}/v1/table/${process.env.ROASTERS}`,
     { next: { revalidate: 30 } }
   ).then((res) => res.json());
 
