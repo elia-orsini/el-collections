@@ -8,7 +8,7 @@ import { NextPage } from "next";
 
 async function getData(slug: string) {
   const data = await fetch(
-    `${process.env.CLOUDFLARE_WORKER}/v1/table/${slug}`
+    `${process.env.CLOUDFLARE_WORKER}/v1/page/${slug}`
   ).then((res) => res.json());
 
   return { bookContent: data };
