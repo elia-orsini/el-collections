@@ -40,10 +40,12 @@ const Book: React.FC<{
 
           <div className="flex justify-between">
             <p className="text-sm font-light inline pl-2 py-1">
-              {new Date(dateFinished).toLocaleDateString("en-GB", {
-                month: "long",
-                day: "numeric",
-              })}
+              {dateFinished
+                ? new Date(dateFinished).toLocaleDateString("en-GB", {
+                    month: "long",
+                    day: "numeric",
+                  })
+                : "reading"}
             </p>
           </div>
         </div>
