@@ -14,7 +14,7 @@ const Book: React.FC<{
       >
         <div className="hover:bg-gray-100">
           <div className="flex justify-between">
-            <p className="lowercase line-clamp-1 px-2 pb-1 h-max sm:h-12">
+            <p className="capitalize px-2 pb-1 h-max overflow-hidden sm:h-12">
               {title}
             </p>
 
