@@ -14,7 +14,7 @@ const SwitchButton: React.FC<{
             onClick={() => setState(currentState)}
             className={`${state === currentState ? "text-white" : "bg-white"} ${
               i > 0 && `border-l-0`
-            } border border-black px-6 py-1`}
+            } border border-black px-5 sm:px-6 py-1`}
           >
             {currentState}
           </button>

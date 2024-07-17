@@ -4,6 +4,10 @@ export async function GET(request, { params }) {
   let databaseId;
 
   switch (slug) {
+    case "2021":
+      databaseId = process.env.BOOKS2021;
+      break;
+
     case "2022":
       databaseId = process.env.BOOKS2022;
       break;

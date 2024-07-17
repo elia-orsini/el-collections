@@ -17,11 +17,12 @@ const Books = () => {
   const [currentYearData, setCurrentYearData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const books2021 = useBooks("2021");
   const books2022 = useBooks("2022");
   const books2023 = useBooks("2023");
   const books2024 = useBooks("2024");
 
-  console.log(currentYearData);
+  console.log(books2021);
 
   const oneDay = 24 * 60 * 60 * 1000;
   const lastDay = new Date(2025, 0, 1);
@@ -31,21 +32,25 @@ const Books = () => {
   useEffect(() => {
     switch (thisYear) {
       case "2024":
-        setCurrentYearData(books2024.cafes);
+        setCurrentYearData(books2024.books);
         setIsLoading(books2024.isLoading);
         break;
       case "2023":
-        setCurrentYearData(books2023.cafes);
+        setCurrentYearData(books2023.books);
         setIsLoading(books2023.isLoading);
         break;
       case "2022":
-        setCurrentYearData(books2022.cafes);
+        setCurrentYearData(books2022.books);
         setIsLoading(books2022.isLoading);
+        break;
+      case "2021":
+        setCurrentYearData(books2021.books);
+        setIsLoading(books2021.isLoading);
         break;
       default:
         break;
     }
-  }, [thisYear, books2022, books2023, books2024]);
+  }, [thisYear, books2021, books2022, books2023, books2024]);
 
   // @ts-ignore
   const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
@@ -86,7 +91,7 @@ const Books = () => {
             <SwitchButton
               setState={setThisYear}
               state={thisYear}
-              states={["2024", "2023", "2022"]}
+              states={["2024", "2023", "2022", "2021"]}
             />
           </div>
 
