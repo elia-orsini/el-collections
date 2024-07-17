@@ -18,17 +18,18 @@ const Page: NextPage<{ params: any }> = async ({ params }) => {
   const { bookContent } = await getData(params.slug);
 
   return (
-    <div className="min-h-screen flex-col flex">
-      <Header title="blog post" description="..." />
+    <div className="min-h-screen">
+      <div className="min-h-screen flex-col flex">
+        <Header title="blog post" description="..." />
 
-      <Title leftSide={<span>title</span>} />
+        <Title leftSide={<span>title</span>} />
 
-      <div className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star">
-        <div>
-          <NotionRenderer blockMap={bookContent} />
+        <div className="h-full my-10 mx-auto w-11/12 sm:w-8/12 justify-star">
+          <div>
+            <NotionRenderer blockMap={bookContent} />
+          </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );
