@@ -17,6 +17,10 @@ export async function GET(request, { params }) {
       databaseId = process.env.GLACAFES;
       break;
 
+    case "lon":
+      databaseId = process.env.LONCAFES;
+      break;
+
     default:
       break;
   }

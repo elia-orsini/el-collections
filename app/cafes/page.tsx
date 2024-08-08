@@ -20,6 +20,7 @@ const IndexPage = () => {
   const aberdeen = useCafes("abd");
   const edinburgh = useCafes("edi");
   const glasgow = useCafes("gla");
+  const london = useCafes("lon");
 
   const roasters = useRoasters();
 
@@ -33,6 +34,11 @@ const IndexPage = () => {
       case "edi":
         if (!edinburgh.isLoading) {
           setToShow(edinburgh.cafes);
+        }
+        break;
+      case "lon":
+        if (!london.isLoading) {
+          setToShow(london.cafes);
         }
         break;
       case "abd":
@@ -76,7 +82,7 @@ const IndexPage = () => {
             <SwitchButton
               setState={setCity}
               state={city}
-              states={["gla", "edi", "abd"]}
+              states={["gla", "edi", "lon", "abd"]}
             />
           </div>
 
