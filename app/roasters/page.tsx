@@ -71,12 +71,14 @@ const IndexPage: React.FC = () => {
                               target="_blank"
                               rel="noreferrer"
                             >
-                              <span className="text-xl cursor-pointer">
+                              <span className="text-xl cursor-pointer capitalize">
                                 {roaster.Name}
                               </span>
                             </a>
                             <span className="text-sm mx-1">_</span>
-                            <span className="text-sm">{roaster.City}</span>
+                            <span className="text-sm capitalize">
+                              {roaster.City}
+                            </span>
                           </div>
                         );
                       })}
