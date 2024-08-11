@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
 import "../public/style.css";
+import { ReactNode } from "react";
+
 import Footer from "../components/Footer";
 
 const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -7,9 +8,9 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     <html lang="en">
       <body>
         <main>{children}</main>
-      </body>
 
-      <Footer />
+        <Footer />
+      </body>
     </html>
   );
 };

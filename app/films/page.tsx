@@ -1,6 +1,5 @@
 import React from "react";
 
-import Footer from "../../components/Footer";
 import Title from "../../components/Title";
 import { IFilm } from "../../types/Film";
 import FilmsList from "../../components/films/FilmsList";

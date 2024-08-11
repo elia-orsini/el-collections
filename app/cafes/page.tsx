@@ -1,6 +1,5 @@
 import React from "react";
 
-import Footer from "../../components/Footer";
 import CafesList from "../../components/cafes/CafesList";
 import { IRoaster } from "../../types/Roaster";
 
