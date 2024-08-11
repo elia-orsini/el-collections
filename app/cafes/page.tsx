@@ -6,7 +6,6 @@ import { ICafe } from "../../types/Cafe";
 import Cafe from "../../components/Cafe";
 import RatingsExplanation from "../../components/RatingsExplanation";
 import Title from "../../components/Title";
-import Header from "../../components/Header";
 import useRoasters from "../../hooks/useRoasters";
 import useCafes from "../../hooks/useCafes";
 import SwitchButton from "../../components/common/SwitchButton";
@@ -63,11 +62,6 @@ const IndexPage = () => {
 
   return (
     <div className="min-h-screen flex-col flex justify-between">
-      <Header
-        title="cafes database"
-        description="Database of Cafes in Scotland (Glasgow, Edinburgh and Aberdeen)."
-      />
-
       <div className="w-full">
         <Title leftSide={<span>{toShow.length} cafes total</span>} />
 

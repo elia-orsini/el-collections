@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 
 import useBooks from "../../hooks/useBooks";
-import Header from "../../components/Header";
 import Title from "../../components/Title";
 import SwitchButton from "../../components/common/SwitchButton";
 import Book from "../../components/Book";
@@ -71,11 +70,6 @@ const Books = () => {
 
   return (
     <div className="flex flex-col min-h-screen justify-between">
-      <Header
-        title="el's books"
-        description="List of books i have read in the past years."
-      />
-
       <div className="w-full">
         <Title leftSide={<></>} />
 

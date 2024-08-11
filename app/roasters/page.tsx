@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import useRoasters from "../../hooks/useRoasters";
 import Footer from "../../components/Footer";
 import Title from "../../components/Title";
-import Header from "../../components/Header";
 import { IRoaster } from "../../types/Roaster";
 import LoadingPage from "../../components/LoadingPage";
 
@@ -47,11 +46,6 @@ const IndexPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex-col flex justify-between">
-      <Header
-        title="roasters database"
-        description="Database of Roasters in the world."
-      />
-
       <div className="w-full">
         <Title leftSide={<span>{roasters.length} roasters</span>} />
 

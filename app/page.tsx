@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Title from "../components/Title";
 
 const IndexPage = () => {
@@ -37,11 +36,6 @@ const IndexPage = () => {
 
   return (
     <div className="h-screen min-h-screen flex-col flex">
-      <Header
-        title="elia's personal database"
-        description="elia's personal database collecting good films, amazing cafes and books I read."
-      />
-
       <Title />
 
       <div className="mx-auto px-2 w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b sm:border-r sm:border-l border-black">
