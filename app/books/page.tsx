@@ -1,110 +1,40 @@
-"use client";
+import React from "react";
 
-import React, { useEffect, useState } from "react";
-
-import useBooks from "../../hooks/useBooks";
 import Title from "../../components/Title";
-import SwitchButton from "../../components/common/SwitchButton";
-import Book from "../../components/Book";
-import Footer from "../../components/Footer";
-import BooksStats from "../../components/books/BooksStats";
+import BooksList from "../../components/books/BooksList";
 import { IBook } from "../../types/Book";
-import LoadingPage from "../../components/LoadingPage";
 
-const Books = () => {
-  const [thisYear, setThisYear] = useState("2024");
-  const [currentYearData, setCurrentYearData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const getBooks = async (): Promise<{
+  "2021": IBook[];
+  "2022": IBook[];
+  "2023": IBook[];
+  "2024": IBook[];
+}> => {
+  const k21 = await fetch(process.env.URL + `/api/books/2021`).then((res) =>
+    res.json()
+  );
+  const k22 = await fetch(process.env.URL + `/api/books/2022`).then((res) =>
+    res.json()
+  );
+  const k23 = await fetch(process.env.URL + `/api/books/2023`).then((res) =>
+    res.json()
+  );
+  const k24 = await fetch(process.env.URL + `/api/books/2024`).then((res) =>
+    res.json()
+  );
 
-  const books2021 = useBooks("2021");
-  const books2022 = useBooks("2022");
-  const books2023 = useBooks("2023");
-  const books2024 = useBooks("2024");
+  return { 2021: k21, 2022: k22, 2023: k23, 2024: k24 };
+};
 
-  console.log(books2021);
-
-  const oneDay = 24 * 60 * 60 * 1000;
-  const lastDay = new Date(2025, 0, 1);
-  const firstDay = new Date(2024, 0, 1);
-  const secondDate = new Date();
-
-  useEffect(() => {
-    switch (thisYear) {
-      case "2024":
-        setCurrentYearData(books2024.books);
-        setIsLoading(books2024.isLoading);
-        break;
-      case "2023":
-        setCurrentYearData(books2023.books);
-        setIsLoading(books2023.isLoading);
-        break;
-      case "2022":
-        setCurrentYearData(books2022.books);
-        setIsLoading(books2022.isLoading);
-        break;
-      case "2021":
-        setCurrentYearData(books2021.books);
-        setIsLoading(books2021.isLoading);
-        break;
-      default:
-        break;
-    }
-  }, [thisYear, books2021, books2022, books2023, books2024]);
-
-  // @ts-ignore
-  const remainingDays = Math.round(Math.abs((lastDay - secondDate) / oneDay));
-  // @ts-ignore
-  const passedDays = Math.round(Math.abs((firstDay - secondDate) / oneDay));
-
-  const booksToRead = 15;
-  const booksRead = currentYearData ? currentYearData.length : 0;
-  const booksADay = (remainingDays / (booksToRead - booksRead)).toFixed(2);
-
-  useEffect(() => {
-    console.log(booksADay + " days to read a book");
-  }, [booksADay]);
-
-  if (isLoading) {
-    return <LoadingPage />;
-  }
+const Books = async () => {
+  const books = await getBooks();
 
   return (
     <div className="flex flex-col min-h-screen justify-between">
       <div className="w-full">
         <Title leftSide={<></>} />
 
-        <div className="h-full flex flex-col justify-start mt-4">
-          <BooksStats
-            thisYear={thisYear === "2024"}
-            booksRead={booksRead}
-            booksToRead={booksToRead}
-            passedDays={passedDays}
-          />
-
-          <div className="flex my-6">
-            <SwitchButton
-              setState={setThisYear}
-              state={thisYear}
-              states={["2024", "2023", "2022", "2021"]}
-            />
-          </div>
-
-          <div className="text-center mx-auto my-auto mb-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {currentYearData.length &&
-              currentYearData.map((book: IBook) => {
-                return (
-                  <Book
-                    key={book.id}
-                    id={book.id}
-                    title={book.title}
-                    author={book.author}
-                    dateFinished={book.date_read}
-                    link={book.link}
-                  />
-                );
-              })}
-          </div>
-        </div>
+        <BooksList books={books} />
       </div>
     </div>
   );

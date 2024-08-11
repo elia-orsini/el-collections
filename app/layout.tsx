@@ -16,3 +16,5 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 export default Layout;
+
+export const revalidate = 360; // revalidate at most every 6 minutes
