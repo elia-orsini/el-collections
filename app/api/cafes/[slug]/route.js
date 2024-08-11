@@ -1,16 +1,13 @@
 export async function GET(request, { params }) {
-  const slug = params.slug;
-
   let databaseId;
 
-  switch (slug) {
+  switch (params.slug) {
     case "abd":
       databaseId = process.env.ABDNCAFES;
       break;
 
     case "edi":
       databaseId = process.env.EDICAFES;
-
       break;
 
     case "gla":
@@ -19,9 +16,6 @@ export async function GET(request, { params }) {
 
     case "lon":
       databaseId = process.env.LONCAFES;
-      break;
-
-    default:
       break;
   }
 

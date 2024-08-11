@@ -27,7 +27,6 @@ const Page: NextPage<{ params: any }> = async ({ params }) => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

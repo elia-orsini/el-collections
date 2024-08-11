@@ -1,10 +1,15 @@
 import { ReactNode } from "react";
 import "../public/style.css";
+import Footer from "../components/Footer";
 
 const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main>{children}</main>
+      </body>
+
+      <Footer />
     </html>
   );
 };

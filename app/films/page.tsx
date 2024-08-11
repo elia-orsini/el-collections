@@ -30,8 +30,6 @@ const IndexPage = async () => {
       />
 
       <FilmsList films={films} />
-
-      <Footer />
     </>
   );
 };

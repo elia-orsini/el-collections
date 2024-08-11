@@ -106,8 +106,6 @@ const Books = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

@@ -75,8 +75,6 @@ const IndexPage = () => {
           </Link>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

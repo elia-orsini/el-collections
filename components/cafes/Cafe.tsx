@@ -1,8 +1,8 @@
-import getRoasterNameById from "../utils/getRoasterNameByID";
-import RoastersScroller from "./RoastersScroller";
-import { IRoaster } from "../types/Roaster";
+import { ICafe } from "../../types/Cafe";
+import { IRoaster } from "../../types/Roaster";
+import getRoasterNameById from "../../utils/getRoasterNameByID";
 
-import { ICafe } from "../types/Cafe";
+import RoastersScroller from "../RoastersScroller";
 
 const Cafe: React.FC<{
   cafe: ICafe;

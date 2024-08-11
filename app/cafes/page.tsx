@@ -1,100 +1,46 @@
-"use client";
+import React from "react";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { ICafe } from "../../types/Cafe";
-import Cafe from "../../components/Cafe";
-import RatingsExplanation from "../../components/RatingsExplanation";
-import Title from "../../components/Title";
-import useRoasters from "../../hooks/useRoasters";
-import useCafes from "../../hooks/useCafes";
-import SwitchButton from "../../components/common/SwitchButton";
 import Footer from "../../components/Footer";
-import LoadingPage from "../../components/LoadingPage";
+import CafesList from "../../components/cafes/CafesList";
+import { IRoaster } from "../../types/Roaster";
 
-const IndexPage = () => {
-  const [city, setCity] = useState("gla");
-  const [toShow, setToShow] = useState([]);
+const getCafes = async () => {
+  const aberdeen = await fetch(process.env.URL + `/api/cafes/abd`).then((res) =>
+    res.json()
+  );
+  const edinburgh = await fetch(process.env.URL + `/api/cafes/edi`).then(
+    (res) => res.json()
+  );
+  const glasgow = await fetch(process.env.URL + `/api/cafes/gla`).then((res) =>
+    res.json()
+  );
+  const london = await fetch(process.env.URL + `/api/cafes/lon`).then((res) =>
+    res.json()
+  );
 
-  const aberdeen = useCafes("abd");
-  const edinburgh = useCafes("edi");
-  const glasgow = useCafes("gla");
-  const london = useCafes("lon");
+  return {
+    aberdeen,
+    edinburgh,
+    glasgow,
+    london,
+  };
+};
 
-  const roasters = useRoasters();
+const getRoasters = async (): Promise<IRoaster[]> => {
+  const roasters = await fetch(process.env.URL + `/api/roasters`).then((res) =>
+    res.json()
+  );
 
-  useEffect(() => {
-    switch (city) {
-      case "gla":
-        if (!glasgow.isLoading) {
-          setToShow(glasgow.cafes);
-        }
-        break;
-      case "edi":
-        if (!edinburgh.isLoading) {
-          setToShow(edinburgh.cafes);
-        }
-        break;
-      case "lon":
-        if (!london.isLoading) {
-          setToShow(london.cafes);
-        }
-        break;
-      case "abd":
-        if (!aberdeen.isLoading) {
-          setToShow(aberdeen.cafes);
-        }
-        break;
-      default:
-        break;
-    }
-  }, [city, glasgow, edinburgh, aberdeen]);
+  return roasters;
+};
 
-  const isLoading =
-    aberdeen.isLoading ||
-    edinburgh.isLoading ||
-    glasgow.isLoading ||
-    roasters.isLoading;
-
-  if (isLoading) {
-    return <LoadingPage />;
-  }
+const IndexPage = async () => {
+  const cafes = await getCafes();
+  const roasters = await getRoasters();
 
   return (
     <div className="min-h-screen flex-col flex justify-between">
-      <div className="w-full">
-        <Title leftSide={<span>{toShow.length} cafes total</span>} />
-
-        <div className="h-full mx-auto w-max flex flex-col justify-start">
-          <RatingsExplanation />
-
-          <Link href="/roasters" className="mx-auto underline mt-4">
-            Coffee Roasters
-          </Link>
-
-          <div className="flex my-6">
-            <SwitchButton
-              setState={setCity}
-              state={city}
-              states={["gla", "edi", "lon", "abd"]}
-            />
-          </div>
-
-          <div className="p-2 sm:p-4 border border-black bg-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-8 mb-8">
-            {toShow.map((cafe: ICafe) => {
-              return (
-                <Cafe
-                  key={cafe.id}
-                  cafe={cafe}
-                  allRoasters={roasters.roasters}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      <Footer />
+      <CafesList cafes={cafes} roasters={roasters} />
     </div>
   );
 };
