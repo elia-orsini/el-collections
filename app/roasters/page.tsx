@@ -4,6 +4,7 @@ import Title from "../../components/Title";
 import { IRoaster } from "../../types/Roaster";
 import RoastersList from "../../components/roasters/RoastersList";
 import divideRoastersByContinent from "../utils/divideRoastersByContinent";
+import { Metadata } from "next";
 
 const getRoasters = async (): Promise<IRoaster[]> => {
   const roasters = await fetch(process.env.URL + `/api/roasters`).then((res) =>
@@ -26,6 +27,11 @@ const IndexPage: React.FC = async () => {
       </div>
     </div>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Coffee Roasters",
+  description: "Collecting specialty coffee roasters in the world.",
 };
 
 export default IndexPage;

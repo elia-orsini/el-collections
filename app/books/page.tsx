@@ -3,6 +3,7 @@ import React from "react";
 import Title from "../../components/Title";
 import BooksList from "../../components/books/BooksList";
 import { IBook } from "../../types/Book";
+import { Metadata } from "next";
 
 const getBooks = async (): Promise<{
   "2021": IBook[];
@@ -38,6 +39,11 @@ const Books = async () => {
       </div>
     </div>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Books",
+  description: "Keeping track of the books I read while I save the good bits.",
 };
 
 export default Books;

@@ -1,9 +1,9 @@
+import { NextPage } from "next";
 import "react-notion/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import { NotionRenderer } from "react-notion";
+
 import Title from "../../../components/Title";
-import Footer from "../../../components/Footer";
-import { NextPage } from "next";
 
 async function getData(slug: string) {
   const data = await fetch(

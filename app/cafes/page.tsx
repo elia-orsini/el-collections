@@ -2,6 +2,7 @@ import React from "react";
 
 import CafesList from "../../components/cafes/CafesList";
 import { IRoaster } from "../../types/Roaster";
+import { Metadata } from "next";
 
 const getCafes = async () => {
   const aberdeen = await fetch(process.env.URL + `/api/cafes/abd`).then((res) =>
@@ -42,6 +43,11 @@ const IndexPage = async () => {
       <CafesList cafes={cafes} roasters={roasters} />
     </div>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Cafes",
+  description: "Seeking the best specialty coffee in Scotland and England.",
 };
 
 export default IndexPage;
