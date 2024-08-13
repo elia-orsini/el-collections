@@ -27,14 +27,6 @@ export const metadata: Metadata = {
     "Collecting my favourite films, cafes and books. Based in Glasgow, Scotland.",
   creator: "Elia Orsini",
   applicationName: "elia's database",
-  keywords: [
-    "Specialty Coffee",
-    "Indie Films",
-    "Books",
-    "Glasgow",
-    "Scotland",
-    "Specialty Coffee in Glasgow",
-  ],
   referrer: "origin-when-cross-origin",
 };
 
