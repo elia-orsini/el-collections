@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: "elia's database",
   },
   description:
-    "Collecting my favourite films, cafes and books. Based in Glasgow, Scotland.",
+    "Collecting my favourite films (mostly indie), cafes (specialty coffee) and books.",
   creator: "Elia Orsini",
   applicationName: "elia's database",
   referrer: "origin-when-cross-origin",
