@@ -11,6 +11,8 @@ const getFilms = async () => {
     { next: { revalidate: 30 } }
   ).then((res) => res.json());
 
+  data.reverse();
+
   return data;
 };
 
