@@ -13,9 +13,9 @@ const IndexPage = () => {
     <div className="h-screen min-h-screen flex-col flex">
       <Title />
 
-      <div className="mx-auto px-2 w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b sm:border-r sm:border-l border-black">
-        <p className="text-xl inline">
-          Just a simple website collecting books I read / film I watch / coffee
+      <div className="mx-auto px-2 text-xl w-full sm:w-4/5 md:w-3/5 text-left border-dashed border-b sm:border-r sm:border-l border-black">
+        <p>
+          Just a simple website collecting books I read / films I watch / coffee
           I drink.
         </p>
       </div>

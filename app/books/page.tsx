@@ -30,10 +30,17 @@ const getBooks = async (): Promise<{
 const Books = async () => {
   const books = await getBooks();
 
+  const allBooks = [
+    ...books["2021"],
+    ...books["2022"],
+    ...books["2023"],
+    ...books["2024"],
+  ];
+
   return (
     <div className="flex flex-col min-h-screen justify-between">
       <div className="w-full">
-        <Title leftSide={<></>} />
+        <Title leftSide={<>{allBooks.length} books</>} />
 
         <BooksList books={books} />
       </div>

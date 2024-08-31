@@ -32,7 +32,7 @@ const Title: React.FC<{ leftSide?: ReactNode }> = ({ leftSide }) => {
       </div>
 
       <div className="py-2 px-10 flex-1 text-center">
-        <h1 className="text-lg lowercase tracking-tight">
+        <h1 className="text-lg">
           elia&apos;s personal database
         </h1>
       </div>

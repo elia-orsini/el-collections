@@ -7,11 +7,11 @@ const RoastersList: React.FC<{ groupedByContinent: any }> = ({
 }) => {
   return (
     <div className="h-full mx-auto w-max flex flex-col justify-start">
-      <div className="p-2">
+      <div className="p-4">
         {Object.keys(groupedByContinent).map((continent) => {
           return (
-            <div className="mb-10" key={`continent_${continent}`}>
-              <p className="mt-10 mb-4 text-sm">{continent}</p>
+            <div className="mb-10 columns-1 sm:columns-2 lg:columns-3" key={`continent_${continent}`}>
+              <p className="-mt-2 text-[40px]">{continent}</p>
               {groupedByContinent[continent].map((roaster: IRoaster) => {
                 return (
                   <div key={`roaster_${roaster.Name}`}>
