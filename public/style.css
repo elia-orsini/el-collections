@@ -10,3 +10,11 @@
     transform: rotate(360deg);
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: HN;
+    font-weight: 600;
+    src: url(/fonts/HN-md.woff2) format("woff2");
+  }
+}

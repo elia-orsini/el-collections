@@ -26,7 +26,7 @@ const Cafe: React.FC<{
         }
         `}
       >
-        {cafe.name.length > 17 ? cafe.name.slice(0, 17) + ".." : cafe.name}
+        {cafe.name.length > 18 ? cafe.name.slice(0, 18) + ".." : cafe.name}
       </p>
 
       <p className="font-extralight tracking-wide text-sm uppercase">

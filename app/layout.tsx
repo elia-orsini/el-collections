@@ -8,7 +8,7 @@ const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <main className="font-[HN]">{children}</main>
 
         <Footer />
       </body>

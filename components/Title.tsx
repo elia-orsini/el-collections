@@ -3,7 +3,9 @@ import { ReactNode } from "react";
 
 const Title: React.FC<{ leftSide?: ReactNode }> = ({ leftSide }) => {
   return (
-    <div className="w-full bg-white flex border-dashed border-b border-black grid lg:grid-cols-3 z-10">
+    <div
+      className={`w-full bg-white flex border-dashed border-b border-black grid lg:grid-cols-3 z-10`}
+    >
       <div className="flex w-max h-full border-r border-dashed border-black hidden lg:flex cursor-pointer">
         <Link href={"/"} passHref className="mx-5 my-auto w-5">
           <svg
@@ -30,15 +32,15 @@ const Title: React.FC<{ leftSide?: ReactNode }> = ({ leftSide }) => {
       </div>
 
       <div className="py-2 px-10 flex-1 text-center">
-        <h1 className="text-lg font-light lowercase tracking-tight">
+        <h1 className="text-lg lowercase tracking-tight">
           elia&apos;s personal database
         </h1>
       </div>
 
       <div className="flex h-full justify-self-end hidden sm:block">
         <div className="border-l border-dashed border-black h-full flex">
-          <h3 className="px-6 my-auto text-2xs text-right uppercase font-light tracking-tighter hidden lg:block">
-            {leftSide ? leftSide : <span>3 active collections</span>}
+          <h3 className="px-6 my-auto text-2xs text-right uppercase hidden lg:block">
+            {leftSide ? leftSide : <span>03 active collections</span>}
           </h3>
         </div>
       </div>

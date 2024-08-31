@@ -37,15 +37,22 @@ const CafesList: React.FC<{ cafes: any; roasters: IRoaster[] }> = ({
     }
   }, [city, cafes]);
 
+  const allCafes = [
+    ...cafes.glasgow,
+    ...cafes.edinburgh,
+    ...cafes.london,
+    ...cafes.aberdeen,
+  ];
+
   return (
     <div className="w-full">
-      <Title leftSide={<span>{toShow.length} cafes total</span>} />
+      <Title leftSide={<span>{allCafes.length} cafes total</span>} />
 
       <div className="h-full mx-auto w-max flex flex-col justify-start">
         <RatingsExplanation />
 
         <Link href="/roasters" className="mx-auto underline mt-4">
-          Coffee Roasters
+          All Coffee Roasters
         </Link>
 
         <div className="flex my-6">

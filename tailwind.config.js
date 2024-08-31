@@ -6,6 +6,11 @@ module.exports = {
   ],
   mode: "jit",
   theme: {
+    extend: {
+      fontFamily: {
+        sans: ["sans-serif"],
+      },
+    },
     fontSize: {
       "2xs": ".6rem",
       xs: ".75rem",
