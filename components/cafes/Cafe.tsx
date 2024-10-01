@@ -58,9 +58,9 @@ const Cafe: React.FC<{
           />
         )}
 
-        {cafe.link !== "#" && (
+        {cafe.url !== "#" && (
           <a
-            href={cafe.link}
+            href={cafe.url}
             target="_blank"
             rel="noreferrer"
             className="flex py-auto items-center cursor-pointer"
