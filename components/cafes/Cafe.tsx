@@ -29,7 +29,7 @@ const Cafe: React.FC<{
         {cafe.name.length > 18 ? cafe.name.slice(0, 18) + ".." : cafe.name}
       </p>
 
-      <p className="font-extralight tracking-wide text-sm uppercase">
+      <p className="tracking-wide text-sm uppercase">
         {cafe.address}
       </p>
 
