@@ -5,7 +5,7 @@ import { IBook } from "../../types/Book";
 import Book from "../Book";
 
 import BooksStats from "./BooksStats";
-import BooksSwitchButton from "../common/BooksSwitchButton";
+import BooksSwitchButton from "./BooksSwitchButton";
 
 const BooksList: React.FC<{
   books: { "2021": IBook[]; "2022": IBook[]; "2023": IBook[]; "2024": IBook[] };

@@ -2,13 +2,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import SwitchButton from "../common/SwitchButton";
 import Title from "../Title";
 import { ICafe } from "../../types/Cafe";
-
 import Cafe from "./Cafe";
 import { IRoaster } from "../../types/Roaster";
 import clearInitialState from "../../app/utils/clearInitialState";
+import CafesSwitchButton from "./CafesSwitchButton";
 
 const CafesList: React.FC<{
   cafes: any;
@@ -57,10 +56,17 @@ const CafesList: React.FC<{
 
       <div className="h-full mx-auto w-max flex flex-col justify-start">
         <div className="my-6">
-          <SwitchButton
+          <CafesSwitchButton
             setState={setCity}
             state={city}
             states={["glasgow", "edinburgh", "london", "aberdeen", "china"]}
+            lengths={[
+              cafes.glasgow.length,
+              cafes.edinburgh.length,
+              cafes.london.length,
+              cafes.aberdeen.length,
+              cafes.china.length,
+            ]}
           />
         </div>
 
