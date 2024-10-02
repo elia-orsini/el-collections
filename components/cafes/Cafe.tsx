@@ -54,7 +54,7 @@ const Cafe: React.FC<{
           <img
             alt="stars"
             className="inline w-20 -mt-2 -mb-2"
-            src={`skull.png`}
+            src={`/skull.png`}
           />
         )}
 
