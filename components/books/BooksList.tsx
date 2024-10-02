@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import SwitchButton from "../common/SwitchButton";
 import { IBook } from "../../types/Book";
 import Book from "../Book";
 
 import BooksStats from "./BooksStats";
+import BooksSwitchButton from "../common/BooksSwitchButton";
 
 const BooksList: React.FC<{
   books: { "2021": IBook[]; "2022": IBook[]; "2023": IBook[]; "2024": IBook[] };
@@ -39,7 +39,7 @@ const BooksList: React.FC<{
       />
 
       <div className="flex my-6">
-        <SwitchButton
+        <BooksSwitchButton
           setState={setThisYear}
           state={thisYear}
           states={["2024", "2023", "2022", "2021"]}
