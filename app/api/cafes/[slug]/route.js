@@ -17,6 +17,10 @@ export async function GET(request, { params }) {
     case "lon":
       databaseId = process.env.LONCAFES;
       break;
+
+    case "china":
+      databaseId = process.env.CHINACAFES;
+      break;
   }
 
   const data = await fetch(

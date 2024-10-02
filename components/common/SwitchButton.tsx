@@ -6,15 +6,15 @@ const SwitchButton: React.FC<{
   states: string[];
 }> = ({ setState, state, states }) => {
   return (
-    <div className="flex mx-auto bg-black text-sm">
+    <div className="flex flex-col sm:flex-row mx-auto bg-black text-sm w-max">
       {states.map((currentState, i) => {
         return (
           <button
             key={currentState}
             onClick={() => setState(currentState)}
             className={`${state === currentState ? "text-white" : "bg-white"} ${
-              i > 0 && `border-l-0`
-            } border border-black px-5 sm:px-6 py-1 uppercase`}
+              i > 0 && `sm:border-l-0 border-t-0`
+            } border border-black px-5 sm:px-6 py-1 uppercase sm:border-t`}
           >
             {currentState}
           </button>

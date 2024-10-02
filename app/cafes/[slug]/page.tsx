@@ -1,8 +1,9 @@
 import React from "react";
+import { Metadata, NextPage } from "next";
 
-import CafesList from "../../components/cafes/CafesList";
-import { IRoaster } from "../../types/Roaster";
-import { Metadata } from "next";
+import CafesList from "../../../components/cafes/CafesList";
+import { IRoaster } from "../../../types/Roaster";
+import clearInitialState from "../../utils/clearInitialState";
 
 const getCafes = async () => {
   const aberdeen = await fetch(process.env.URL + `/api/cafes/abd`).then((res) =>
@@ -26,7 +27,7 @@ const getCafes = async () => {
     edinburgh,
     glasgow,
     london,
-    china
+    china,
   };
 };
 
@@ -38,20 +39,26 @@ const getRoasters = async (): Promise<IRoaster[]> => {
   return roasters;
 };
 
-const IndexPage = async () => {
+const IndexPage: NextPage<{ params: { slug: string } }> = async ({
+  params,
+}) => {
   const cafes = await getCafes();
   const roasters = await getRoasters();
 
   return (
     <div className="min-h-screen flex-col flex justify-between">
-      <CafesList cafes={cafes} roasters={roasters} />
+      <CafesList
+        cafes={cafes}
+        roasters={roasters}
+        initialState={clearInitialState(params.slug)}
+      />
     </div>
   );
 };
 
 export const metadata: Metadata = {
   title: "Cafes",
-  description: "Seeking the best specialty coffee in Scotland and England.",
+  description: "Seeking the best specialty coffee.",
 };
 
 export default IndexPage;

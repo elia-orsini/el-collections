@@ -44,7 +44,7 @@ const Cafe: React.FC<{
           <img
             alt="stars"
             className="w-20 -mt-2 -mb-2"
-            src={`${cafe.rating}starsb.png`}
+            src={`/${cafe.rating}starsb.png`}
           />
         )}
 
