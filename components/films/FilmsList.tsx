@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
@@ -33,7 +33,7 @@ const FilmsList: React.FC<{ films: IFilm[] }> = ({ films }) => {
               key={obj.id}
               title={obj.name}
               link={obj.url}
-              img={obj.img}
+              img={obj.imgMedia ? obj.imgMedia[0].url : obj.img}
               rating={obj.rating}
             />
           );
