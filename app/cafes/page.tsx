@@ -17,16 +17,16 @@ const getCafes = async () => {
   const london = await fetch(process.env.URL + `/api/cafes/lon`).then((res) =>
     res.json()
   );
-  const china = await fetch(process.env.URL + `/api/cafes/china`).then((res) =>
-    res.json()
-  );
+  // const china = await fetch(process.env.URL + `/api/cafes/china`).then((res) =>
+  //   res.json()
+  // );
 
   return {
     aberdeen,
     edinburgh,
     glasgow,
     london,
-    china
+    // china
   };
 };
 
