@@ -12,8 +12,8 @@ const BooksSwitchButton: React.FC<{
           <button
             key={currentState}
             onClick={() => setState(currentState)}
-            className={`${state === currentState ? "text-white" : "bg-white"} ${
-              i > 0 && `sm:border-l-0`
+            className={`${
+              state === currentState ? "text-white" : "bg-white"
             } border-l border-y last:border-r border-black px-3 sm:px-6 py-1 uppercase`}
           >
             {currentState}
