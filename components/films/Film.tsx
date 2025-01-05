@@ -7,7 +7,7 @@ const Film: React.FC<{
   rating: string;
 }> = ({ link, img, title, rating }) => {
   return (
-    <div className="flex flex-col w-max mx-auto border border-black bg-white">
+    <div className="flex flex-col mx-auto border border-black w-72">
       <a href={link} target="_blank" rel="noreferrer">
         <img
           width={300}
@@ -24,7 +24,7 @@ const Film: React.FC<{
       {rating ? (
         <img
           alt="stars"
-          className="mx-auto w-20 -mt-1"
+          className="mx-auto w-20 h-10 my-auto"
           src={`${rating}starsb.png`}
         />
       ) : (

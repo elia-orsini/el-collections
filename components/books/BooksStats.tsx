@@ -4,7 +4,7 @@ const BooksStats: React.FC<{
   currentYearData: any;
 }> = ({ thisYear, booksToRead, currentYearData }) => {
   const oneDay = 24 * 60 * 60 * 1000;
-  const firstDay = new Date(2024, 0, 1);
+  const firstDay = new Date(2025, 0, 1);
   const secondDate = new Date();
 
   // @ts-ignore

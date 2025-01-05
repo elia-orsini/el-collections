@@ -8,13 +8,22 @@ import BooksStats from "./BooksStats";
 import BooksSwitchButton from "./BooksSwitchButton";
 
 const BooksList: React.FC<{
-  books: { "2021": IBook[]; "2022": IBook[]; "2023": IBook[]; "2024": IBook[] };
+  books: {
+    "2021": IBook[];
+    "2022": IBook[];
+    "2023": IBook[];
+    "2024": IBook[];
+    "2025": IBook[];
+  };
 }> = ({ books }) => {
-  const [thisYear, setThisYear] = useState("2024");
+  const [thisYear, setThisYear] = useState("2025");
   const [currentYearData, setCurrentYearData] = useState<IBook[]>([]);
 
   useEffect(() => {
     switch (thisYear) {
+      case "2025":
+        setCurrentYearData(books["2025"]);
+        break;
       case "2024":
         setCurrentYearData(books["2024"]);
         break;
@@ -33,7 +42,7 @@ const BooksList: React.FC<{
   return (
     <div className="h-full flex flex-col justify-start mt-4">
       <BooksStats
-        thisYear={thisYear === "2024"}
+        thisYear={thisYear === "2025"}
         booksToRead={15}
         currentYearData={currentYearData}
       />
@@ -42,7 +51,7 @@ const BooksList: React.FC<{
         <BooksSwitchButton
           setState={setThisYear}
           state={thisYear}
-          states={["2024", "2023", "2022", "2021"]}
+          states={["2025", "2024", "2023", "2022", "2021"]}
         />
       </div>
 

@@ -21,14 +21,24 @@ export async function GET(request, { params }) {
       databaseId = process.env.BOOKS2024;
       break;
 
+    case "2025":
+      databaseId = process.env.BOOKS2025;
+      break;
+
     default:
       break;
   }
 
-  const data = await fetch(
+  const response = await fetch(
     `${process.env.CLOUDFLARE_WORKER}/v1/table/${databaseId}`,
     { next: { revalidate: 30 } }
-  ).then((res) => res.json());
+  );
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  const data = await response.json();
 
   return Response.json(data);
 }
