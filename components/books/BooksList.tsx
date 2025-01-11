@@ -66,7 +66,7 @@ const BooksList: React.FC<{
                   key={book.id}
                   style={{
                     marginLeft: `${Math.floor(
-                      (getDayOfYear(new Date(book.date_read)) / 365) * 288
+                      (getDayOfYear(new Date(book.date_read)) / 365) * 281
                     )}px`,
                   }}
                   className={`absolute bg-black w-2 opacity-40 h-2 rounded-full`}
