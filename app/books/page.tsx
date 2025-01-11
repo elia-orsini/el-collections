@@ -28,7 +28,7 @@ const getBooks = async (): Promise<{
     r.json()
   );
 
-  return { 2021: k21, 2022: k22, 2023: k23, 2024: k24, 2025: [] };
+  return { 2021: k21, 2022: k22, 2023: k23, 2024: k24, 2025: k25 };
 };
 
 const Books = async () => {
