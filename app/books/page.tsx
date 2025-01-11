@@ -24,11 +24,11 @@ const getBooks = async (): Promise<{
   const k24 = await fetch(process.env.URL + `/api/books/2024`).then((r) =>
     r.json()
   );
-  const k25 = await fetch(process.env.URL + `/api/books/2025`).then((r) =>
-    r.json()
-  );
+  // const k25 = await fetch(process.env.URL + `/api/books/2025`).then((r) =>
+  //   r.json()
+  // );
 
-  return { 2021: k21, 2022: k22, 2023: k23, 2024: k24, 2025: k25 };
+  return { 2021: k21, 2022: k22, 2023: k23, 2024: k24, 2025: [] };
 };
 
 const Books = async () => {
