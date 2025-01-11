@@ -6,6 +6,7 @@ import Book from "../Book";
 
 import BooksStats from "./BooksStats";
 import BooksSwitchButton from "./BooksSwitchButton";
+import getDayOfYear from "../../utils/getDayOfYear";
 
 const BooksList: React.FC<{
   books: {
@@ -18,6 +19,13 @@ const BooksList: React.FC<{
 }> = ({ books }) => {
   const [thisYear, setThisYear] = useState("2025");
   const [currentYearData, setCurrentYearData] = useState<IBook[]>([]);
+
+  currentYearData.length &&
+    currentYearData.map((book: IBook) => {
+      console.log(
+        Math.floor((getDayOfYear(new Date(book.date_read)) / 365) * 500)
+      );
+    });
 
   useEffect(() => {
     switch (thisYear) {
@@ -46,6 +54,27 @@ const BooksList: React.FC<{
         booksToRead={15}
         currentYearData={currentYearData}
       />
+
+      <div className="mx-auto mt-6">
+        <hr className="w-72 mx-auto border-black" />
+
+        <div className="mx-auto w-72 -mt-1">
+          {currentYearData.length &&
+            currentYearData.map((book: IBook) => {
+              return (
+                <div
+                  key={book.id}
+                  style={{
+                    marginLeft: `${Math.floor(
+                      (getDayOfYear(new Date(book.date_read)) / 365) * 288
+                    )}px`,
+                  }}
+                  className={`absolute bg-black w-2 opacity-40 h-2 rounded-full`}
+                />
+              );
+            })}
+        </div>
+      </div>
 
       <div className="flex my-6">
         <BooksSwitchButton
