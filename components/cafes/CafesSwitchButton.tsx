@@ -21,7 +21,7 @@ const CafesSwitchButton: React.FC<{
             <div
               className={`${
                 state === currentState && "text-white border-white"
-              } w-max mt-0.5 inline px-1 ml-1 text-2xs rounded-full border border-black`}
+              } w-max mt-0.5 inline h-4 aspect-square ml-1 text-2xs rounded-full border border-black`}
             >
               {lengths[i]}
             </div>

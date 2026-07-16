@@ -50,7 +50,7 @@ const BooksList: React.FC<{
   return (
     <div className="h-full flex flex-col justify-start mt-4">
       <BooksStats
-        thisYear={thisYear === "2025"}
+        thisYear={false}
         booksToRead={15}
         currentYearData={currentYearData}
       />
